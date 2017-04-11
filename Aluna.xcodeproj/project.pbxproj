@@ -7,21 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		681B5A8B1E9C90500074C27A /* UIFont+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681B5A8A1E9C90500074C27A /* UIFont+Helper.swift */; };
+		681B5A961E9C9BAC0074C27A /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 681B5A8D1E9C9B1A0074C27A /* OpenSans-Regular.ttf */; };
+		681B5A971E9C9BAF0074C27A /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 681B5A8E1E9C9B1A0074C27A /* OpenSans-Semibold.ttf */; };
+		681B5A981E9C9BB10074C27A /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 681B5A8F1E9C9B1A0074C27A /* OpenSans-SemiboldItalic.ttf */; };
+		681B5A991E9C9BB10074C27A /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 681B5A901E9C9B1A0074C27A /* OpenSans-Bold.ttf */; };
+		681B5A9A1E9C9BB10074C27A /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 681B5A911E9C9B1A0074C27A /* OpenSans-BoldItalic.ttf */; };
+		681B5A9B1E9C9BB10074C27A /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 681B5A921E9C9B1A0074C27A /* OpenSans-ExtraBold.ttf */; };
+		681B5A9C1E9C9BB10074C27A /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 681B5A931E9C9B1A0074C27A /* OpenSans-ExtraBoldItalic.ttf */; };
+		681B5A9D1E9C9BB10074C27A /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 681B5A941E9C9B1A0074C27A /* OpenSans-Light.ttf */; };
+		681B5A9E1E9C9BB10074C27A /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 681B5A951E9C9B1A0074C27A /* OpenSans-LightItalic.ttf */; };
+		681B5AA01E9C9CBA0074C27A /* UIColor+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681B5A9F1E9C9CBA0074C27A /* UIColor+Helper.swift */; };
 		68744B761E9C47B400E346AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68744B751E9C47B400E346AB /* AppDelegate.swift */; };
-		68744B781E9C47B400E346AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68744B771E9C47B400E346AB /* ViewController.swift */; };
-		68744B7B1E9C47B400E346AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68744B791E9C47B400E346AB /* Main.storyboard */; };
+		68744B781E9C47B400E346AB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68744B771E9C47B400E346AB /* LoginViewController.swift */; };
 		68744B7D1E9C47B400E346AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68744B7C1E9C47B400E346AB /* Assets.xcassets */; };
 		68744B801E9C47B400E346AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68744B7E1E9C47B400E346AB /* LaunchScreen.storyboard */; };
+		68AE61A91E9CA1AE0027CFBC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AE61A81E9CA1AE0027CFBC /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		681B5A8A1E9C90500074C27A /* UIFont+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIFont+Helper.swift"; path = "../../aluna/Aluna/UIFont+Helper.swift"; sourceTree = "<group>"; };
+		681B5A8D1E9C9B1A0074C27A /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		681B5A8E1E9C9B1A0074C27A /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
+		681B5A8F1E9C9B1A0074C27A /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
+		681B5A901E9C9B1A0074C27A /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		681B5A911E9C9B1A0074C27A /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		681B5A921E9C9B1A0074C27A /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		681B5A931E9C9B1A0074C27A /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		681B5A941E9C9B1A0074C27A /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		681B5A951E9C9B1A0074C27A /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		681B5A9F1E9C9CBA0074C27A /* UIColor+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Helper.swift"; sourceTree = "<group>"; };
 		68744B721E9C47B400E346AB /* Aluna.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aluna.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68744B751E9C47B400E346AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		68744B771E9C47B400E346AB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		68744B7A1E9C47B400E346AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		68744B771E9C47B400E346AB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		68744B7C1E9C47B400E346AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68744B7F1E9C47B400E346AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68744B811E9C47B400E346AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		68AE61A81E9CA1AE0027CFBC /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +57,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		681B5A891E9C902B0074C27A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				681B5A8A1E9C90500074C27A /* UIFont+Helper.swift */,
+				681B5A9F1E9C9CBA0074C27A /* UIColor+Helper.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		681B5A8C1E9C9AFE0074C27A /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				681B5A8D1E9C9B1A0074C27A /* OpenSans-Regular.ttf */,
+				681B5A8E1E9C9B1A0074C27A /* OpenSans-Semibold.ttf */,
+				681B5A8F1E9C9B1A0074C27A /* OpenSans-SemiboldItalic.ttf */,
+				681B5A901E9C9B1A0074C27A /* OpenSans-Bold.ttf */,
+				681B5A911E9C9B1A0074C27A /* OpenSans-BoldItalic.ttf */,
+				681B5A921E9C9B1A0074C27A /* OpenSans-ExtraBold.ttf */,
+				681B5A931E9C9B1A0074C27A /* OpenSans-ExtraBoldItalic.ttf */,
+				681B5A941E9C9B1A0074C27A /* OpenSans-Light.ttf */,
+				681B5A951E9C9B1A0074C27A /* OpenSans-LightItalic.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		68744B691E9C47B400E346AB = {
 			isa = PBXGroup;
 			children = (
@@ -54,14 +101,32 @@
 		68744B741E9C47B400E346AB /* Aluna */ = {
 			isa = PBXGroup;
 			children = (
-				68744B751E9C47B400E346AB /* AppDelegate.swift */,
-				68744B771E9C47B400E346AB /* ViewController.swift */,
-				68744B791E9C47B400E346AB /* Main.storyboard */,
-				68744B7C1E9C47B400E346AB /* Assets.xcassets */,
-				68744B7E1E9C47B400E346AB /* LaunchScreen.storyboard */,
-				68744B811E9C47B400E346AB /* Info.plist */,
+				68744B871E9C839300E346AB /* Supporting Files */,
+				68744B881E9C840400E346AB /* View Controllers */,
+				681B5A891E9C902B0074C27A /* Helpers */,
 			);
 			path = Aluna;
+			sourceTree = "<group>";
+		};
+		68744B871E9C839300E346AB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				68744B751E9C47B400E346AB /* AppDelegate.swift */,
+				68744B7E1E9C47B400E346AB /* LaunchScreen.storyboard */,
+				68744B7C1E9C47B400E346AB /* Assets.xcassets */,
+				681B5A8C1E9C9AFE0074C27A /* Fonts */,
+				68744B811E9C47B400E346AB /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		68744B881E9C840400E346AB /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				68744B771E9C47B400E346AB /* LoginViewController.swift */,
+				68AE61A81E9CA1AE0027CFBC /* MainViewController.swift */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,9 +189,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				681B5A971E9C9BAF0074C27A /* OpenSans-Semibold.ttf in Resources */,
+				681B5A9C1E9C9BB10074C27A /* OpenSans-ExtraBoldItalic.ttf in Resources */,
+				681B5A981E9C9BB10074C27A /* OpenSans-SemiboldItalic.ttf in Resources */,
+				681B5A991E9C9BB10074C27A /* OpenSans-Bold.ttf in Resources */,
+				681B5A9B1E9C9BB10074C27A /* OpenSans-ExtraBold.ttf in Resources */,
+				681B5A9E1E9C9BB10074C27A /* OpenSans-LightItalic.ttf in Resources */,
+				681B5A9A1E9C9BB10074C27A /* OpenSans-BoldItalic.ttf in Resources */,
 				68744B801E9C47B400E346AB /* LaunchScreen.storyboard in Resources */,
+				681B5A961E9C9BAC0074C27A /* OpenSans-Regular.ttf in Resources */,
+				681B5A9D1E9C9BB10074C27A /* OpenSans-Light.ttf in Resources */,
 				68744B7D1E9C47B400E346AB /* Assets.xcassets in Resources */,
-				68744B7B1E9C47B400E346AB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,22 +210,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68744B781E9C47B400E346AB /* ViewController.swift in Sources */,
+				68744B781E9C47B400E346AB /* LoginViewController.swift in Sources */,
+				681B5AA01E9C9CBA0074C27A /* UIColor+Helper.swift in Sources */,
 				68744B761E9C47B400E346AB /* AppDelegate.swift in Sources */,
+				681B5A8B1E9C90500074C27A /* UIFont+Helper.swift in Sources */,
+				68AE61A91E9CA1AE0027CFBC /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		68744B791E9C47B400E346AB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				68744B7A1E9C47B400E346AB /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		68744B7E1E9C47B400E346AB /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -302,6 +370,7 @@
 				68744B861E9C47B400E346AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
