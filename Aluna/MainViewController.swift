@@ -10,8 +10,21 @@ import UIKit
 import Segmentio
 
 private extension CGFloat {
-  static let titleLabelHeightConstraint:CGFloat = 160.0
-  static let segmentedControlHeightConstraint:CGFloat = 80.0
+  static let menuButtonHeightConstraint:CGFloat = 25.0
+  static let menuButtonWidthConstraint:CGFloat = 35.0
+  static let menuButtonLeftConstraint:CGFloat = 15.0
+  static let menuButtonTopConstraint:CGFloat = 35.0
+  
+  static let searchButtonHeightConstraint:CGFloat = 28.0
+  static let searchButtonWidthConstraint:CGFloat = 28.0
+  static let searchButtonRightConstraint:CGFloat = 15.0
+  static let searchButtonTopConstraint:CGFloat = 35.0
+  
+  static let titleLabelLeftConstraint:CGFloat = 25.0
+  static let titleLabelBottomConstraint:CGFloat = 15.0
+  static let titleLabelHeightConstraint:CGFloat = 50.0
+  static let bannerImageHeightConstraint:CGFloat = 130.0
+  static let segmentedControlHeightConstraint:CGFloat = 70.0
 }
 
 class MainViewController: UIViewController {
@@ -26,14 +39,33 @@ class MainViewController: UIViewController {
   
   // MARK: - Views
   
-  private lazy var menuButton: UIBarButtonItem = { [unowned self] in
+  private lazy var menuButton: UIButton = { [unowned self] in
     let menuButton = ScalableButton(type: .custom)
-    menuButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
     menuButton.setImage(self.defaultMenuImage(), for: UIControlState())
     menuButton.addTarget(self, action: #selector(openSlidingMenu), for: .touchUpInside)
     
-    let barButtonItem:UIBarButtonItem = UIBarButtonItem(customView: menuButton)
-    return barButtonItem
+    menuButton.translatesAutoresizingMaskIntoConstraints = false
+    return menuButton
+    }()
+  
+  private lazy var searchButton: UIButton = { [unowned self] in
+    let searchButton = ScalableButton(type: .custom)
+    let searchImage = UIImage(named:"search.png")
+    searchButton.setImage(searchImage, for: UIControlState())
+    searchButton.addTarget(self, action: #selector(openSlidingMenu), for: .touchUpInside)
+    
+    searchButton.translatesAutoresizingMaskIntoConstraints = false
+    return searchButton
+    }()
+  
+  
+  private  lazy var bannerImageView: UIImageView = { [unowned self] in
+    let bannerImageView = UIImageView()
+    bannerImageView.image = UIImage(named: "meetings-header.png")
+    bannerImageView.contentMode = .scaleAspectFill
+    
+    bannerImageView.translatesAutoresizingMaskIntoConstraints = false
+    return bannerImageView
     }()
   
   private lazy var titleLabel: UILabel = { [unowned self] in
@@ -42,7 +74,7 @@ class MainViewController: UIViewController {
     titleLabel.textColor = UIColor.white
     titleLabel.textAlignment = .left
     titleLabel.numberOfLines = 1
-    titleLabel.font = UIFont.alunaFontWithSize(24.0)
+    titleLabel.font = UIFont.alunaLightFontWithSize(32.0)
     
     titleLabel.translatesAutoresizingMaskIntoConstraints = false
     return titleLabel
@@ -52,34 +84,34 @@ class MainViewController: UIViewController {
     let meetingSegmentedControl = Segmentio(frame: CGRect(x: 0, y: .titleLabelHeightConstraint, width: UIScreen.main.bounds.width, height: .segmentedControlHeightConstraint))
     
     var segmentContent = [SegmentioItem]()
-    let upNextSegment = SegmentioItem(title: "Up Next", image: nil)
+    let upNextSegment = SegmentioItem(title: "UP NEXT", image: nil)
     segmentContent.append(upNextSegment)
-    let nameSegement = SegmentioItem(title: "Name", image: nil)
+    let nameSegement = SegmentioItem(title: "NAME", image: nil)
     segmentContent.append(nameSegement)
-    let completedSegment = SegmentioItem(title: "Completed", image: nil)
+    let completedSegment = SegmentioItem(title: "COMPLETED", image: nil)
     segmentContent.append(completedSegment)
     
     meetingSegmentedControl.setup(
       content: segmentContent,
       style: SegmentioStyle.onlyLabel,
       options: SegmentioOptions(
-        backgroundColor: .white,
+        backgroundColor: UIColor.alunaLightGray(),
         maxVisibleItems: 3,
         scrollEnabled: true,
         indicatorOptions: SegmentioIndicatorOptions(
           type: .bottom,
           ratio: 1,
           height: 5,
-          color: .orange
+          color: UIColor.alunaLightGreen()
         ),
         horizontalSeparatorOptions: SegmentioHorizontalSeparatorOptions(
-          type: SegmentioHorizontalSeparatorType.topAndBottom, // Top, Bottom, TopAndBottom
+          type: SegmentioHorizontalSeparatorType.bottom, // Top, Bottom, TopAndBottom
           height: 1,
-          color: .gray
+          color: .clear
         ),
         verticalSeparatorOptions: SegmentioVerticalSeparatorOptions(
           ratio: 0.6, // from 0.1 to 1
-          color: .gray
+          color: .clear
         ),
         imageContentMode: .center,
         labelTextAlignment: .center,
@@ -87,21 +119,21 @@ class MainViewController: UIViewController {
         segmentStates: SegmentioStates(
           defaultState: SegmentioState(
             backgroundColor: .clear,
-            titleFont: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
+            titleFont: UIFont.alunaFontWithSize(12.0),
             titleTextColor: .black
           ),
           selectedState: SegmentioState(
-            backgroundColor: .orange,
-            titleFont: UIFont.systemFont(ofSize: UIFont.smallSystemFontSize),
-            titleTextColor: .white
+            backgroundColor: .clear,
+            titleFont: UIFont.alunaFontWithSize(12.0),
+            titleTextColor: .black
           ),
           highlightedState: SegmentioState(
-            backgroundColor: UIColor.lightGray.withAlphaComponent(0.6),
-            titleFont: UIFont.boldSystemFont(ofSize: UIFont.smallSystemFontSize),
+            backgroundColor: .clear, //UIColor.lightGray.withAlphaComponent(0.6),
+            titleFont: UIFont.alunaFontWithSize(12.0),
             titleTextColor: .black
           )
         ),
-        animationDuration: 0.5
+        animationDuration: 0.2
       )
     )
   
@@ -135,8 +167,7 @@ class MainViewController: UIViewController {
     super.viewDidLoad()
     
     view.backgroundColor = UIColor.lightGray
-    
-    setUpNavBar()
+    navigationController?.setNavigationBarHidden(true, animated: true)
     
     addSubviews()
     addConstraints()
@@ -161,20 +192,57 @@ class MainViewController: UIViewController {
   // MARK: - Layout
   
   func addSubviews() {
+    view.addSubview(bannerImageView)
+    view.addSubview(menuButton)
+    view.addSubview(searchButton)
     view.addSubview(titleLabel)
     view.addSubview(meetingSegmentedControl)
     view.addSubview(meetingsTable)
   }
   
   func addConstraints() {
+    //menuButton
+    
+    //top
+    view.addConstraint(NSLayoutConstraint(item:menuButton, attribute:.top, relatedBy:.equal, toItem: view, attribute:.top, multiplier: 1, constant: .menuButtonTopConstraint))
+    //left
+    view.addConstraint(NSLayoutConstraint(item:menuButton, attribute:.left, relatedBy:.equal, toItem: view, attribute:.left, multiplier: 1, constant: .menuButtonLeftConstraint))
+    //width
+    view.addConstraint(NSLayoutConstraint(item:menuButton, attribute:.width, relatedBy:.equal, toItem: nil, attribute:.notAnAttribute, multiplier: 1, constant: .menuButtonWidthConstraint))
+    //height
+    view.addConstraint(NSLayoutConstraint(item:menuButton, attribute:.height, relatedBy:.equal, toItem: nil, attribute:.notAnAttribute, multiplier: 1, constant: .menuButtonHeightConstraint))
+    
+    
+    //searchButton
+    
+    //top
+    view.addConstraint(NSLayoutConstraint(item:searchButton, attribute:.top, relatedBy:.equal, toItem: view, attribute:.top, multiplier: 1, constant: .searchButtonTopConstraint))
+    //left
+    view.addConstraint(NSLayoutConstraint(item:searchButton, attribute:.right, relatedBy:.equal, toItem: view, attribute:.right, multiplier: 1, constant: -.searchButtonRightConstraint))
+    //width
+    view.addConstraint(NSLayoutConstraint(item:searchButton, attribute:.width, relatedBy:.equal, toItem: nil, attribute:.notAnAttribute, multiplier: 1, constant: .searchButtonWidthConstraint))
+    //height
+    view.addConstraint(NSLayoutConstraint(item:searchButton, attribute:.height, relatedBy:.equal, toItem: nil, attribute:.notAnAttribute, multiplier: 1, constant: .searchButtonHeightConstraint))
+    
+    //bannerImageView
+    
+    //height
+    view.addConstraint(NSLayoutConstraint(item:bannerImageView, attribute:.height, relatedBy:.equal, toItem: nil, attribute:.notAnAttribute, multiplier: 1, constant: .bannerImageHeightConstraint))
+    //top
+    view.addConstraint(NSLayoutConstraint(item:bannerImageView, attribute:.top, relatedBy:.equal, toItem: view, attribute:.top, multiplier: 1, constant: 0))
+    //left
+    view.addConstraint(NSLayoutConstraint(item:bannerImageView, attribute:.left, relatedBy:.equal, toItem: view, attribute:.left, multiplier: 1, constant: 0))
+    //right
+    view.addConstraint(NSLayoutConstraint(item:bannerImageView, attribute:.right, relatedBy:.equal, toItem: view, attribute:.right, multiplier: 1, constant: 0))
+    
     //titleLabel
     
     //height
     view.addConstraint(NSLayoutConstraint(item:titleLabel, attribute:.height, relatedBy:.equal, toItem: nil, attribute:.notAnAttribute, multiplier: 1, constant: .titleLabelHeightConstraint))
-    //top
-    view.addConstraint(NSLayoutConstraint(item:titleLabel, attribute:.top, relatedBy:.equal, toItem: view, attribute:.top, multiplier: 1, constant: 0))
+    //bottom
+    view.addConstraint(NSLayoutConstraint(item:titleLabel, attribute:.bottom, relatedBy:.equal, toItem: bannerImageView, attribute:.bottom, multiplier: 1, constant: -.titleLabelBottomConstraint))
     //left
-    view.addConstraint(NSLayoutConstraint(item:titleLabel, attribute:.left, relatedBy:.equal, toItem: view, attribute:.left, multiplier: 1, constant: 0))
+    view.addConstraint(NSLayoutConstraint(item:titleLabel, attribute:.left, relatedBy:.equal, toItem: view, attribute:.left, multiplier: 1, constant: .titleLabelLeftConstraint))
     //right
     view.addConstraint(NSLayoutConstraint(item:titleLabel, attribute:.right, relatedBy:.equal, toItem: view, attribute:.right, multiplier: 1, constant: 0))
     
@@ -183,7 +251,7 @@ class MainViewController: UIViewController {
     //height
     view.addConstraint(NSLayoutConstraint(item:meetingSegmentedControl, attribute:.height, relatedBy:.equal, toItem: nil, attribute:.notAnAttribute, multiplier: 1, constant: .segmentedControlHeightConstraint))
     //top
-    view.addConstraint(NSLayoutConstraint(item:meetingSegmentedControl, attribute:.top, relatedBy:.equal, toItem: titleLabel, attribute:.bottom, multiplier: 1, constant: 0))
+    view.addConstraint(NSLayoutConstraint(item:meetingSegmentedControl, attribute:.top, relatedBy:.equal, toItem: bannerImageView, attribute:.bottom, multiplier: 1, constant: 0))
     //left
     view.addConstraint(NSLayoutConstraint(item:meetingSegmentedControl, attribute:.left, relatedBy:.equal, toItem: view, attribute:.left, multiplier: 1, constant: 0))
     //right
@@ -203,15 +271,13 @@ class MainViewController: UIViewController {
   
   // MARK: - View Helpers
   
-  func setUpNavBar(){
-    self.navigationItem.leftBarButtonItem = menuButton;
-    
-    // Add a translucent navigation bar
-    let navigationBar = self.navigationController?.navigationBar
-    navigationBar?.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-    navigationBar?.shadowImage = UIImage()
-    navigationBar?.isTranslucent = true
-  }
+//  func setUpNavBar(){
+//    // Add a translucent navigation bar
+//    let navigationBar = self.navigationController?.navigationBar
+//    navigationBar?.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+//    navigationBar?.shadowImage = UIImage()
+//    navigationBar?.isTranslucent = true
+//  }
   
   func defaultMenuImage() -> UIImage {
     var defaultMenuImage = UIImage()
@@ -259,12 +325,12 @@ extension MainViewController : UITableViewDelegate, UITableViewDataSource {
     if indexPath.section == 0 {
       switch indexPath.row {
       case 0:
-        return 40.0
+        return 80.0
       default:
         break
       }
     }
-    return 40.0
+    return 80.0
   }
   
   func numberOfSections(in tableView: UITableView) -> Int {
@@ -284,22 +350,15 @@ extension MainViewController : UITableViewDelegate, UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell: UITableViewCell = UITableViewCell(style: .default, reuseIdentifier: "headerCell")
-    cell.selectionStyle = .none
+    let meetingCell: MeetingTableViewCell = MeetingTableViewCell(style: .default, reuseIdentifier: "meetingCell")
+//    cell.selectionStyle = .none
     if indexPath.section == 0 {
       switch indexPath.row {
-      case 0:
-//        cell.addSubview(webColorLabel)
-//        cell.addSubview(webColorTextField)
-        return cell
-      case 1:
-//        cell.addSubview(pickerColor)
-        return cell
       default:
         break
       }
     }
-    return cell
+    return meetingCell
   }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

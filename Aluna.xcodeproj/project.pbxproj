@@ -26,6 +26,7 @@
 		68392A271EA2F20700F4920F /* PresentMenuAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68392A261EA2F20700F4920F /* PresentMenuAnimationController.swift */; };
 		68392A291EA2F61700F4920F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68392A281EA2F61700F4920F /* MenuViewController.swift */; };
 		68392A2B1EA3053600F4920F /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68392A2A1EA3053600F4920F /* MenuTableViewCell.swift */; };
+		68392A2D1EA3ECD900F4920F /* MeetingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68392A2C1EA3ECD900F4920F /* MeetingTableViewCell.swift */; };
 		68744B761E9C47B400E346AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68744B751E9C47B400E346AB /* AppDelegate.swift */; };
 		68744B781E9C47B400E346AB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68744B771E9C47B400E346AB /* LoginViewController.swift */; };
 		68744B7D1E9C47B400E346AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68744B7C1E9C47B400E346AB /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 		68392A261EA2F20700F4920F /* PresentMenuAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentMenuAnimationController.swift; sourceTree = "<group>"; };
 		68392A281EA2F61700F4920F /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		68392A2A1EA3053600F4920F /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
+		68392A2C1EA3ECD900F4920F /* MeetingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingTableViewCell.swift; sourceTree = "<group>"; };
 		68744B721E9C47B400E346AB /* Aluna.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aluna.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68744B751E9C47B400E346AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		68744B771E9C47B400E346AB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 		68AE61AC1E9CA53C0027CFBC /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				68392A2C1EA3ECD900F4920F /* MeetingTableViewCell.swift */,
 				68392A2A1EA3053600F4920F /* MenuTableViewCell.swift */,
 				68AE61AA1E9CA4FD0027CFBC /* ScalableButton.swift */,
 			);
@@ -334,6 +337,7 @@
 				68744B761E9C47B400E346AB /* AppDelegate.swift in Sources */,
 				68392A291EA2F61700F4920F /* MenuViewController.swift in Sources */,
 				68392A251EA2F17700F4920F /* DismissMenuAnimationController.swift in Sources */,
+				68392A2D1EA3ECD900F4920F /* MeetingTableViewCell.swift in Sources */,
 				68392A2B1EA3053600F4920F /* MenuTableViewCell.swift in Sources */,
 				681B5A8B1E9C90500074C27A /* UIFont+Helper.swift in Sources */,
 				681085F91EA200F400FB32F0 /* StudentProfileViewController.swift in Sources */,

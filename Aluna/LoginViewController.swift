@@ -66,7 +66,8 @@ class LoginViewController: UIViewController {
     super.viewDidLoad()
     
     view.backgroundColor = UIColor.blue
-    
+    navigationController?.setNavigationBarHidden(true, animated: true)
+
     addSubviews()
     addConstraints()
   }

@@ -29,6 +29,14 @@ extension UIColor {
   public class func alunaGray() -> UIColor {
     return UIColor(hexString: "#aaaaaa")
   }
+
+  public class func alunaLightGray() -> UIColor {
+    return UIColor(hexString: "#f2f2f2")
+  }
+  
+  public class func alunaLightGreen() -> UIColor {
+    return UIColor(hexString: "#50D2C2")
+  }
   
   public class func alunaGreen() -> UIColor {
     return UIColor(hexString: "#58b570")

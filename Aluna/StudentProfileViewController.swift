@@ -118,7 +118,8 @@ class StudentProfileViewController: UIViewController {
       super.viewDidLoad()
       
       view.backgroundColor = UIColor.lightGray
-      
+      navigationController?.setNavigationBarHidden(false, animated: true)
+
       addSubviews()
       addConstraints()
     }
