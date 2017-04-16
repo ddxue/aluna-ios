@@ -22,11 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Set Background Color of window
     window?.backgroundColor = UIColor.white
     
-    // Allocate memory for an instance of the 'MainViewController' class
-    let mainViewController = LoginViewController()
+    // Allocate memory for an instance of the 'LoginViewController' class
+    let loginViewController = LoginViewController()
     
     // Set the root view controller of the app's window
-    window!.rootViewController = mainViewController
+    let navigationVC = UINavigationController(rootViewController: loginViewController)
+    window!.rootViewController = navigationVC
     
     // Make the window visible
     window!.makeKeyAndVisible()

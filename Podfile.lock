@@ -1,0 +1,15 @@
+PODS:
+  - MSSlidingPanelController (1.3.6)
+  - Segmentio (2.1.2)
+
+DEPENDENCIES:
+  - MSSlidingPanelController
+  - Segmentio (~> 2.1)
+
+SPEC CHECKSUMS:
+  MSSlidingPanelController: a0515f4e0724fbe4de0970b2fac23ef16366f75c
+  Segmentio: f85114993e305bd9c522952eef8c2c4db732fd17
+
+PODFILE CHECKSUM: fa59220e5ca7927bdeea8d9800a5e0ad32a441f1
+
+COCOAPODS: 1.1.1

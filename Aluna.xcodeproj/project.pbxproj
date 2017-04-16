@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24C8F5058C3B348F9F982976 /* Pods_Aluna.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7009528AD47AEE3886F0BC74 /* Pods_Aluna.framework */; };
+		681085F91EA200F400FB32F0 /* StudentProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681085F81EA200F400FB32F0 /* StudentProfileViewController.swift */; };
 		681B5A8B1E9C90500074C27A /* UIFont+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681B5A8A1E9C90500074C27A /* UIFont+Helper.swift */; };
 		681B5A961E9C9BAC0074C27A /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 681B5A8D1E9C9B1A0074C27A /* OpenSans-Regular.ttf */; };
 		681B5A971E9C9BAF0074C27A /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 681B5A8E1E9C9B1A0074C27A /* OpenSans-Semibold.ttf */; };
@@ -18,14 +20,22 @@
 		681B5A9D1E9C9BB10074C27A /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 681B5A941E9C9B1A0074C27A /* OpenSans-Light.ttf */; };
 		681B5A9E1E9C9BB10074C27A /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 681B5A951E9C9B1A0074C27A /* OpenSans-LightItalic.ttf */; };
 		681B5AA01E9C9CBA0074C27A /* UIColor+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681B5A9F1E9C9CBA0074C27A /* UIColor+Helper.swift */; };
+		68392A211EA2F11000F4920F /* MenuHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68392A201EA2F11000F4920F /* MenuHelper.swift */; };
+		68392A231EA2F13F00F4920F /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68392A221EA2F13F00F4920F /* Interactor.swift */; };
+		68392A251EA2F17700F4920F /* DismissMenuAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68392A241EA2F17700F4920F /* DismissMenuAnimationController.swift */; };
+		68392A271EA2F20700F4920F /* PresentMenuAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68392A261EA2F20700F4920F /* PresentMenuAnimationController.swift */; };
+		68392A291EA2F61700F4920F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68392A281EA2F61700F4920F /* MenuViewController.swift */; };
+		68392A2B1EA3053600F4920F /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68392A2A1EA3053600F4920F /* MenuTableViewCell.swift */; };
 		68744B761E9C47B400E346AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68744B751E9C47B400E346AB /* AppDelegate.swift */; };
 		68744B781E9C47B400E346AB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68744B771E9C47B400E346AB /* LoginViewController.swift */; };
 		68744B7D1E9C47B400E346AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68744B7C1E9C47B400E346AB /* Assets.xcassets */; };
 		68744B801E9C47B400E346AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68744B7E1E9C47B400E346AB /* LaunchScreen.storyboard */; };
 		68AE61A91E9CA1AE0027CFBC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AE61A81E9CA1AE0027CFBC /* MainViewController.swift */; };
+		68AE61AB1E9CA4FD0027CFBC /* ScalableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AE61AA1E9CA4FD0027CFBC /* ScalableButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		681085F81EA200F400FB32F0 /* StudentProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentProfileViewController.swift; sourceTree = "<group>"; };
 		681B5A8A1E9C90500074C27A /* UIFont+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIFont+Helper.swift"; path = "../../aluna/Aluna/UIFont+Helper.swift"; sourceTree = "<group>"; };
 		681B5A8D1E9C9B1A0074C27A /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		681B5A8E1E9C9B1A0074C27A /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
@@ -37,6 +47,12 @@
 		681B5A941E9C9B1A0074C27A /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
 		681B5A951E9C9B1A0074C27A /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
 		681B5A9F1E9C9CBA0074C27A /* UIColor+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Helper.swift"; sourceTree = "<group>"; };
+		68392A201EA2F11000F4920F /* MenuHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuHelper.swift; sourceTree = "<group>"; };
+		68392A221EA2F13F00F4920F /* Interactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
+		68392A241EA2F17700F4920F /* DismissMenuAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissMenuAnimationController.swift; sourceTree = "<group>"; };
+		68392A261EA2F20700F4920F /* PresentMenuAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentMenuAnimationController.swift; sourceTree = "<group>"; };
+		68392A281EA2F61700F4920F /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		68392A2A1EA3053600F4920F /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		68744B721E9C47B400E346AB /* Aluna.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aluna.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68744B751E9C47B400E346AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		68744B771E9C47B400E346AB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -44,6 +60,10 @@
 		68744B7F1E9C47B400E346AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68744B811E9C47B400E346AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		68AE61A81E9CA1AE0027CFBC /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		68AE61AA1E9CA4FD0027CFBC /* ScalableButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalableButton.swift; sourceTree = "<group>"; };
+		7009528AD47AEE3886F0BC74 /* Pods_Aluna.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aluna.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9204C073BDAEBAF106D48998 /* Pods-Aluna.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aluna.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Aluna/Pods-Aluna.debug.xcconfig"; sourceTree = "<group>"; };
+		D563DAEBAC22B654692D8995 /* Pods-Aluna.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aluna.release.xcconfig"; path = "Pods/Target Support Files/Pods-Aluna/Pods-Aluna.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,12 +71,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24C8F5058C3B348F9F982976 /* Pods_Aluna.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5DE9CCF4CEE73CB4011A7B46 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9204C073BDAEBAF106D48998 /* Pods-Aluna.debug.xcconfig */,
+				D563DAEBAC22B654692D8995 /* Pods-Aluna.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		681B5A891E9C902B0074C27A /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -82,11 +112,24 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
+		68392A1F1EA2F0F900F4920F /* Animators */ = {
+			isa = PBXGroup;
+			children = (
+				68392A261EA2F20700F4920F /* PresentMenuAnimationController.swift */,
+				68392A241EA2F17700F4920F /* DismissMenuAnimationController.swift */,
+				68392A201EA2F11000F4920F /* MenuHelper.swift */,
+				68392A221EA2F13F00F4920F /* Interactor.swift */,
+			);
+			name = Animators;
+			sourceTree = "<group>";
+		};
 		68744B691E9C47B400E346AB = {
 			isa = PBXGroup;
 			children = (
 				68744B741E9C47B400E346AB /* Aluna */,
 				68744B731E9C47B400E346AB /* Products */,
+				5DE9CCF4CEE73CB4011A7B46 /* Pods */,
+				EB89E8B8FE6B4E7AE24EDCE6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,8 +168,29 @@
 			children = (
 				68744B771E9C47B400E346AB /* LoginViewController.swift */,
 				68AE61A81E9CA1AE0027CFBC /* MainViewController.swift */,
+				681085F81EA200F400FB32F0 /* StudentProfileViewController.swift */,
+				68392A281EA2F61700F4920F /* MenuViewController.swift */,
+				68392A1F1EA2F0F900F4920F /* Animators */,
+				68AE61AC1E9CA53C0027CFBC /* Custom Views */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		68AE61AC1E9CA53C0027CFBC /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				68392A2A1EA3053600F4920F /* MenuTableViewCell.swift */,
+				68AE61AA1E9CA4FD0027CFBC /* ScalableButton.swift */,
+			);
+			name = "Custom Views";
+			sourceTree = "<group>";
+		};
+		EB89E8B8FE6B4E7AE24EDCE6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7009528AD47AEE3886F0BC74 /* Pods_Aluna.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,9 +200,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 68744B841E9C47B400E346AB /* Build configuration list for PBXNativeTarget "Aluna" */;
 			buildPhases = (
+				91F4B6A14A10A0EADEAC8861 /* [CP] Check Pods Manifest.lock */,
 				68744B6E1E9C47B400E346AB /* Sources */,
 				68744B6F1E9C47B400E346AB /* Frameworks */,
 				68744B701E9C47B400E346AB /* Resources */,
+				9B14410D1C4C8198F7D4D4F4 /* [CP] Embed Pods Frameworks */,
+				0C6765644A4E72ACE732B01E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -205,15 +272,71 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0C6765644A4E72ACE732B01E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Aluna/Pods-Aluna-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		91F4B6A14A10A0EADEAC8861 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9B14410D1C4C8198F7D4D4F4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Aluna/Pods-Aluna-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		68744B6E1E9C47B400E346AB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68392A271EA2F20700F4920F /* PresentMenuAnimationController.swift in Sources */,
+				68392A211EA2F11000F4920F /* MenuHelper.swift in Sources */,
+				68AE61AB1E9CA4FD0027CFBC /* ScalableButton.swift in Sources */,
 				68744B781E9C47B400E346AB /* LoginViewController.swift in Sources */,
+				68392A231EA2F13F00F4920F /* Interactor.swift in Sources */,
 				681B5AA01E9C9CBA0074C27A /* UIColor+Helper.swift in Sources */,
 				68744B761E9C47B400E346AB /* AppDelegate.swift in Sources */,
+				68392A291EA2F61700F4920F /* MenuViewController.swift in Sources */,
+				68392A251EA2F17700F4920F /* DismissMenuAnimationController.swift in Sources */,
+				68392A2B1EA3053600F4920F /* MenuTableViewCell.swift in Sources */,
 				681B5A8B1E9C90500074C27A /* UIFont+Helper.swift in Sources */,
+				681085F91EA200F400FB32F0 /* StudentProfileViewController.swift in Sources */,
 				68AE61A91E9CA1AE0027CFBC /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,6 +358,7 @@
 		68744B821E9C47B400E346AB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -285,6 +409,7 @@
 		68744B831E9C47B400E346AB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -327,7 +452,9 @@
 		};
 		68744B851E9C47B400E346AB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9204C073BDAEBAF106D48998 /* Pods-Aluna.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = TLAM246JYZ;
 				INFOPLIST_FILE = Aluna/Info.plist;
@@ -340,7 +467,9 @@
 		};
 		68744B861E9C47B400E346AB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D563DAEBAC22B654692D8995 /* Pods-Aluna.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = TLAM246JYZ;
 				INFOPLIST_FILE = Aluna/Info.plist;

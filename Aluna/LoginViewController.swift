@@ -11,7 +11,6 @@ import UIKit
 private extension CGFloat {
   static let emailTextFieldHeightConstraint:CGFloat = 80.0
   static let passwordTextFieldHeightConstraint:CGFloat = 80.0
-
   static let loginButtonHeightConstraint:CGFloat = 80.0
   static let loginButtonBottomConstraint:CGFloat = 100.0
 }
@@ -56,7 +55,6 @@ class LoginViewController: UIViewController {
     loginButton.titleLabel!.font = UIFont.alunaSemiboldFontWithSize(15.0)
     loginButton.backgroundColor = UIColor.gray
     loginButton.addTarget(self, action: #selector(loginWithEmail), for: UIControlEvents.touchUpInside)
-    
     
     loginButton.translatesAutoresizingMaskIntoConstraints = false
     return loginButton
@@ -153,9 +151,8 @@ class LoginViewController: UIViewController {
   }
   
   private func skipToMain() {
-//    let tabBarVC = KonstruuTabBarController(nibName: "KonstruuTabBarController", bundle: nil)
-//    tabBarVC.user = DataStructures.exampleUsers[0]
-//    present(tabBarVC, animated: true, completion: nil)
+    let mainVC = MainViewController()
+    self.navigationController?.pushViewController(mainVC, animated: true)
   }
   
 }
