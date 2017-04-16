@@ -58,8 +58,7 @@ class MainViewController: UIViewController {
     return searchButton
     }()
   
-  
-  private  lazy var bannerImageView: UIImageView = { [unowned self] in
+  private lazy var bannerImageView: UIImageView = { [unowned self] in
     let bannerImageView = UIImageView()
     bannerImageView.image = UIImage(named: "meetings-header.png")
     bannerImageView.contentMode = .scaleAspectFill
@@ -106,7 +105,7 @@ class MainViewController: UIViewController {
         ),
         horizontalSeparatorOptions: SegmentioHorizontalSeparatorOptions(
           type: SegmentioHorizontalSeparatorType.bottom, // Top, Bottom, TopAndBottom
-          height: 1,
+          height: 0,
           color: .clear
         ),
         verticalSeparatorOptions: SegmentioVerticalSeparatorOptions(
@@ -187,6 +186,10 @@ class MainViewController: UIViewController {
   
   override func viewDidDisappear(_ animated: Bool) {
     super.viewDidDisappear(animated)
+  }
+  
+  override var preferredStatusBarStyle: UIStatusBarStyle {
+    return .lightContent
   }
   
   // MARK: - Layout

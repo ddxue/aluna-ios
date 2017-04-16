@@ -9,6 +9,10 @@
 import UIKit
 
 private extension CGFloat {
+  static let logoBannerTopConstraint:CGFloat = 120.0
+  static let logoBannerWidthConstraint:CGFloat = 250.0
+  static let logoBannerHeightConstraint:CGFloat = 125.0
+  
   static let emailTextFieldHeightConstraint:CGFloat = 80.0
   static let passwordTextFieldHeightConstraint:CGFloat = 80.0
   static let loginButtonHeightConstraint:CGFloat = 80.0
@@ -19,11 +23,29 @@ class LoginViewController: UIViewController {
 
   // MARK: - Views
   
+  private lazy var logoBannerImageView: UIImageView = { [unowned self] in
+    let logoBannerImageView = UIImageView()
+    logoBannerImageView.image = UIImage(named: "logo-tagline.png")
+    logoBannerImageView.contentMode = .scaleAspectFit
+    
+    logoBannerImageView.translatesAutoresizingMaskIntoConstraints = false
+    return logoBannerImageView
+    }()
+  
+  private lazy var backgroundImageView: UIImageView = { [unowned self] in
+    let backgroundImageView = UIImageView()
+    backgroundImageView.image = UIImage(named: "main-background.png")
+    backgroundImageView.contentMode = .scaleAspectFill
+    
+    backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
+    return backgroundImageView
+    }()
+  
   private lazy var emailTextField: UITextField = { [unowned self] in
     let emailTextField = UITextField()
     emailTextField.placeholder = "Username"
     emailTextField.textColor =  UIColor.alunaBlue()
-    emailTextField.backgroundColor = UIColor.red
+    emailTextField.backgroundColor = UIColor.alunaLightGray()
     emailTextField.delegate = self
     emailTextField.textAlignment = .left
     emailTextField.font = UIFont.alunaFontWithSize(12.0)
@@ -38,7 +60,7 @@ class LoginViewController: UIViewController {
     let passwordTextField = UITextField()
     passwordTextField.placeholder = "Password"
     passwordTextField.textColor =  UIColor.alunaBlue()
-    passwordTextField.backgroundColor = UIColor.green
+    passwordTextField.backgroundColor = UIColor.alunaLightGray()
     passwordTextField.delegate = self
     passwordTextField.textAlignment = .left
     passwordTextField.font = UIFont.alunaFontWithSize(12.0)
@@ -52,8 +74,8 @@ class LoginViewController: UIViewController {
   private lazy var loginButton: UIButton = { [unowned self] in
     let loginButton = UIButton(type: .custom)
     loginButton.setTitle("Sign In", for: UIControlState())
-    loginButton.titleLabel!.font = UIFont.alunaSemiboldFontWithSize(15.0)
-    loginButton.backgroundColor = UIColor.gray
+    loginButton.titleLabel!.font = UIFont.alunaSemiboldFontWithSize(16.0)
+    loginButton.backgroundColor = UIColor.alunaDarkBlue()
     loginButton.addTarget(self, action: #selector(loginWithEmail), for: UIControlEvents.touchUpInside)
     
     loginButton.translatesAutoresizingMaskIntoConstraints = false
@@ -65,7 +87,6 @@ class LoginViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    view.backgroundColor = UIColor.blue
     navigationController?.setNavigationBarHidden(true, animated: true)
 
     addSubviews()
@@ -91,12 +112,39 @@ class LoginViewController: UIViewController {
   // MARK: - layout
   
   func addSubviews() {
+    view.addSubview(backgroundImageView)
+    view.addSubview(logoBannerImageView)
     view.addSubview(emailTextField)
     view.addSubview(passwordTextField)
     view.addSubview(loginButton)
   }
   
   func addConstraints() {
+    
+    //backgroundImageView
+    
+    //top
+    view.addConstraint(NSLayoutConstraint(item:backgroundImageView, attribute:.top, relatedBy:.equal, toItem: view, attribute:.top, multiplier: 1, constant: 0))
+    //bottom
+    view.addConstraint(NSLayoutConstraint(item:backgroundImageView, attribute:.bottom, relatedBy:.equal, toItem: view, attribute:.bottom, multiplier: 1, constant: 0))
+    //left
+    view.addConstraint(NSLayoutConstraint(item:backgroundImageView, attribute:.left, relatedBy:.equal, toItem: view, attribute:.left, multiplier: 1, constant: 0))
+    //right
+    view.addConstraint(NSLayoutConstraint(item:backgroundImageView, attribute:.right, relatedBy:.equal, toItem: view, attribute:.right, multiplier: 1, constant: 0))
+    
+    
+    //logoBannerImageView
+    
+    //top
+    view.addConstraint(NSLayoutConstraint(item:logoBannerImageView, attribute:.top, relatedBy:.equal, toItem: view, attribute:.top, multiplier: 1, constant: .logoBannerTopConstraint))
+    //centerX
+    view.addConstraint(NSLayoutConstraint(item:logoBannerImageView, attribute:.centerX, relatedBy:.equal, toItem: view, attribute:.centerX, multiplier: 1, constant: 0))
+    //width
+    view.addConstraint(NSLayoutConstraint(item:logoBannerImageView, attribute:.width, relatedBy:.equal, toItem: nil, attribute:.notAnAttribute, multiplier: 1, constant: .logoBannerWidthConstraint))
+    //height
+    view.addConstraint(NSLayoutConstraint(item:logoBannerImageView, attribute:.height, relatedBy:.equal, toItem: nil, attribute:.notAnAttribute, multiplier: 1, constant: .logoBannerHeightConstraint))
+    
+    
     //emailTextField
     
     //height
