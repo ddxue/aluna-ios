@@ -23,6 +23,8 @@ class MenuViewController : UIViewController {
   
   var interactor:Interactor? = nil
   
+  var mainNavVC:UINavigationController? = nil
+  
   // MARK: - Views
 
   private lazy var menuView: UIView = { [unowned self] in
@@ -250,14 +252,43 @@ extension MenuViewController : UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
     if indexPath.section == 0 {
-//      pushStudentProfileViewController()
+      switch indexPath.row {
+      case 0:
+        myMeetings()
+      case 1:
+        dailyDose()
+      case 2:
+        settings()
+      case 3:
+        logout()
+      default:
+        break
+      }
     }
   }
   
-//  func pushStudentProfileViewController() {
-//    let studentProfileVC = StudentProfileViewController()
-//    self.navigationController?.pushViewController(studentProfileVC, animated: true)
-//  }
+  // MARK: - Actions
+  
+  func myMeetings() {
+    //TODO:
+  }
+  
+  func dailyDose() {
+    self.dismiss(animated: false, completion: nil)
+    //TODO: present dailyDoseVC
+    
+    let dailyDoseVC = DailyDoseViewController()
+    self.mainNavVC?.present(dailyDoseVC, animated: true, completion: nil)
+  }
+  
+  func settings() {
+    //TODO: present settings
+  }
+  
+  func logout() {
+    self.dismiss(animated: false, completion: nil)
+    self.mainNavVC?.popViewController(animated: true)
+  }
 }
 
 // MARK: - UIGestureRecognizer Delegates

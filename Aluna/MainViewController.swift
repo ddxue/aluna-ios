@@ -20,10 +20,17 @@ private extension CGFloat {
   static let searchButtonRightConstraint:CGFloat = 15.0
   static let searchButtonTopConstraint:CGFloat = 35.0
   
-  static let titleLabelLeftConstraint:CGFloat = 25.0
+  static let titleLabelLeftConstraint:CGFloat = 30.0
   static let titleLabelBottomConstraint:CGFloat = 15.0
   static let titleLabelHeightConstraint:CGFloat = 50.0
-  static let bannerImageHeightConstraint:CGFloat = 130.0
+
+  static let editButtonRightConstraint:CGFloat = 15.0
+  static let editButtonBottomConstraint:CGFloat = 20.0
+  static let editButtonWidthConstraint:CGFloat = 45.0
+  static let editButtonHeightConstraint:CGFloat = 20.0
+  
+  static let bannerImageHeightConstraint:CGFloat = 140.0
+  
   static let segmentedControlHeightConstraint:CGFloat = 70.0
 }
 
@@ -39,7 +46,7 @@ class MainViewController: UIViewController {
   
   // MARK: - Views
   
-  private lazy var menuButton: UIButton = { [unowned self] in
+  private lazy var menuButton: ScalableButton = { [unowned self] in
     let menuButton = ScalableButton(type: .custom)
     menuButton.setImage(self.defaultMenuImage(), for: UIControlState())
     menuButton.addTarget(self, action: #selector(openSlidingMenu), for: .touchUpInside)
@@ -48,7 +55,7 @@ class MainViewController: UIViewController {
     return menuButton
     }()
   
-  private lazy var searchButton: UIButton = { [unowned self] in
+  private lazy var searchButton: ScalableButton = { [unowned self] in
     let searchButton = ScalableButton(type: .custom)
     let searchImage = UIImage(named:"search.png")
     searchButton.setImage(searchImage, for: UIControlState())
@@ -77,6 +84,18 @@ class MainViewController: UIViewController {
     
     titleLabel.translatesAutoresizingMaskIntoConstraints = false
     return titleLabel
+    }()
+  
+  private lazy var editButton: ScalableButton = { [unowned self] in
+    let editButton = ScalableButton(type: .custom)
+    editButton.setTitle("EDIT", for: .normal)
+    editButton.titleLabel?.font = UIFont.alunaFontWithSize(14.0)
+    editButton.titleLabel?.textAlignment = .right
+    editButton.setTitleColor(UIColor.white, for: .normal)
+    editButton.addTarget(self, action: #selector(editCells), for: .touchUpInside)
+    
+    editButton.translatesAutoresizingMaskIntoConstraints = false
+    return editButton
     }()
   
   private lazy var meetingSegmentedControl: Segmentio = { [unowned self] in
@@ -136,10 +155,14 @@ class MainViewController: UIViewController {
       )
     )
   
+    // Handle the callback function
     meetingSegmentedControl.valueDidChange = { segmentio, segmentIndex in
       print("Selected item: ", segmentIndex)
       self.meetingsTable.reloadData()
     }
+    
+    // Initialize the segmented control to 0 index
+    meetingSegmentedControl.selectedSegmentioIndex = 0
     
     meetingSegmentedControl.translatesAutoresizingMaskIntoConstraints = false
     return meetingSegmentedControl
@@ -199,6 +222,7 @@ class MainViewController: UIViewController {
     view.addSubview(menuButton)
     view.addSubview(searchButton)
     view.addSubview(titleLabel)
+    view.addSubview(editButton)
     view.addSubview(meetingSegmentedControl)
     view.addSubview(meetingsTable)
   }
@@ -248,6 +272,17 @@ class MainViewController: UIViewController {
     view.addConstraint(NSLayoutConstraint(item:titleLabel, attribute:.left, relatedBy:.equal, toItem: view, attribute:.left, multiplier: 1, constant: .titleLabelLeftConstraint))
     //right
     view.addConstraint(NSLayoutConstraint(item:titleLabel, attribute:.right, relatedBy:.equal, toItem: view, attribute:.right, multiplier: 1, constant: 0))
+    
+    //editButton
+    
+    //bottom
+    view.addConstraint(NSLayoutConstraint(item:editButton, attribute:.bottom, relatedBy:.equal, toItem: bannerImageView, attribute:.bottom, multiplier: 1, constant: -.editButtonBottomConstraint))
+    //right
+    view.addConstraint(NSLayoutConstraint(item:editButton, attribute:.right, relatedBy:.equal, toItem: view, attribute:.right, multiplier: 1, constant: -.editButtonRightConstraint))
+    //width
+    view.addConstraint(NSLayoutConstraint(item:editButton, attribute:.width, relatedBy:.equal, toItem: nil, attribute:.notAnAttribute, multiplier: 1, constant: .editButtonWidthConstraint))
+    //height
+    view.addConstraint(NSLayoutConstraint(item:editButton, attribute:.height, relatedBy:.equal, toItem: nil, attribute:.notAnAttribute, multiplier: 1, constant: .editButtonHeightConstraint))
     
     //meetingSegmentedControl
     
@@ -307,6 +342,7 @@ class MainViewController: UIViewController {
   func presentMenuVC() {
     let menuViewController = MenuViewController()
     menuViewController.interactor = interactor
+    menuViewController.mainNavVC = self.navigationController
     
     let newNavController = UINavigationController(rootViewController: menuViewController)
     newNavController.transitioningDelegate = self
@@ -318,6 +354,10 @@ class MainViewController: UIViewController {
   func setStatusBarHidden(_ isHidden:Bool) {
     interactor.shouldHideStatusBar = isHidden
     self.setNeedsStatusBarAppearanceUpdate()
+  }
+  
+  func editCells() {
+    
   }
 
 }

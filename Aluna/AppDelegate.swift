@@ -16,6 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    // Use Firebase library to configure APIs
+    FIRApp.configure()
+    
     // Override point for customization after application launch.
     // Initialize the window
     window = UIWindow.init(frame: UIScreen.main.bounds)
@@ -32,10 +35,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // Make the window visible
     window!.makeKeyAndVisible()
-   
-    // Use Firebase library to configure APIs
-    FIRApp.configure()
 
+    //    for familyName in UIFont.familyNames {
+    //      for fontName in UIFont.fontNames(forFamilyName: familyName ) {
+    //        print("\(familyName) : \(fontName)")
+    //      }
+    //    }
+    
     return true
   }
 

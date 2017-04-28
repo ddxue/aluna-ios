@@ -46,6 +46,7 @@ class LoginViewController: UIViewController {
     emailTextField.placeholder = "Username"
     emailTextField.textColor =  UIColor.alunaBlue()
     emailTextField.backgroundColor = UIColor.alunaLightGray()
+    emailTextField.alpha = 0.5
     emailTextField.delegate = self
     emailTextField.textAlignment = .left
     emailTextField.font = UIFont.alunaFontWithSize(12.0)
@@ -61,6 +62,7 @@ class LoginViewController: UIViewController {
     passwordTextField.placeholder = "Password"
     passwordTextField.textColor =  UIColor.alunaBlue()
     passwordTextField.backgroundColor = UIColor.alunaLightGray()
+    passwordTextField.alpha = 0.5
     passwordTextField.delegate = self
     passwordTextField.textAlignment = .left
     passwordTextField.font = UIFont.alunaFontWithSize(12.0)
@@ -74,7 +76,7 @@ class LoginViewController: UIViewController {
   private lazy var loginButton: UIButton = { [unowned self] in
     let loginButton = UIButton(type: .custom)
     loginButton.setTitle("Sign In", for: UIControlState())
-    loginButton.titleLabel!.font = UIFont.alunaSemiboldFontWithSize(16.0)
+    loginButton.titleLabel!.font = UIFont.alunaFontWithSize(16.0)
     loginButton.backgroundColor = UIColor.alunaDarkBlue()
     loginButton.addTarget(self, action: #selector(loginWithEmail), for: UIControlEvents.touchUpInside)
     

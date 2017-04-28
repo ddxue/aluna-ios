@@ -26,4 +26,8 @@ extension UIFont {
     return UIFont(name: "OpenSans-Light", size:size)!
   }
   
+  public class func alunaLightItalicFontWithSize(_ size:CGFloat) -> UIFont {
+    return UIFont(name: "OpenSansLight-Italic", size:size)!
+  }
+  
 }

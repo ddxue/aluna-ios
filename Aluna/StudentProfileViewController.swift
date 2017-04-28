@@ -26,9 +26,13 @@ private extension CGFloat {
   static let titleLabelHeightConstraint:CGFloat = 50.0
   static let bannerImageHeightConstraint:CGFloat = 220.0
   static let segmentedControlHeightConstraint:CGFloat = 60.0
-    
-    static let addNewButtonImageHeightConstraint:CGFloat = 70.0
-    static let addNewButtonImageWidthConstraint:CGFloat = 70.0
+  
+  static let addNewButtonImageHeightConstraint:CGFloat = 70.0
+  static let addNewButtonImageWidthConstraint:CGFloat = 70.0
+  
+  static let addNoteButtonBottomConstraint:CGFloat = 20.0
+  static let addNoteButtonWidthConstraint:CGFloat = 80.0
+  static let addNoteButtonHeightConstraint:CGFloat = 80.0
 }
 
 class StudentProfileViewController: UIViewController {
@@ -140,22 +144,25 @@ class StudentProfileViewController: UIViewController {
       )
     )
     
+    // Handle the callback function
     studentSegmentedControl.valueDidChange = { segmentio, segmentIndex in
       print("Selected item: ", segmentIndex)
       self.studentTable.reloadData()
     }
-    
+  
+    // Initialize the segmented control to 0 index
+    studentSegmentedControl.selectedSegmentioIndex = 0
+
     studentSegmentedControl.translatesAutoresizingMaskIntoConstraints = false
     return studentSegmentedControl
     }()
-
   
     private lazy var studentTable: UITableView = { [unowned self ] in
       let meetingsTable = UITableView(frame: CGRect.null, style: .grouped)
       meetingsTable.backgroundColor = UIColor.clear
       meetingsTable.sectionIndexColor = UIColor.gray
       meetingsTable.sectionIndexBackgroundColor = UIColor.groupTableViewBackground
-      meetingsTable.register(UITableViewCell.self, forCellReuseIdentifier: "headerCell")
+      meetingsTable.register(UITableViewCell.self, forCellReuseIdentifier: "meetingNoteCell")
       meetingsTable.isScrollEnabled = true
       meetingsTable.bounces = false
       meetingsTable.delegate = self
@@ -164,8 +171,16 @@ class StudentProfileViewController: UIViewController {
       meetingsTable.translatesAutoresizingMaskIntoConstraints = false
       return meetingsTable
       }()
-    
-    
+  
+    private lazy var addNoteButton: UIButton = { [unowned self] in
+      let addNoteButton = ScalableButton(type: .custom)
+      addNoteButton.setImage(UIImage(named:"plus-thin.png"), for: UIControlState())
+      addNoteButton.addTarget(self, action: #selector(addNote), for: .touchUpInside)
+      
+      addNoteButton.translatesAutoresizingMaskIntoConstraints = false
+      return addNoteButton
+      }()
+  
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
@@ -276,24 +291,27 @@ class StudentProfileViewController: UIViewController {
       view.addConstraint(NSLayoutConstraint(item:studentTable, attribute:.left, relatedBy:.equal, toItem: view, attribute:.left, multiplier: 1, constant: 0))
       //right
       view.addConstraint(NSLayoutConstraint(item:studentTable, attribute:.right, relatedBy:.equal, toItem: view, attribute:.right, multiplier: 1, constant: 0))
-        
-        //addNewButton
-        
-        //height
-        view.addConstraint(NSLayoutConstraint(item:addNewButton, attribute:.height, relatedBy:.equal, toItem: nil, attribute:.notAnAttribute, multiplier: 1, constant: .addNewButtonImageHeightConstraint))
-        //width
-        view.addConstraint(NSLayoutConstraint(item:addNewButton, attribute:.width, relatedBy:.equal, toItem: nil, attribute:.notAnAttribute, multiplier: 1, constant: .addNewButtonImageWidthConstraint))
-        //centered
-        view.addConstraint(NSLayoutConstraint(item:addNewButton, attribute:.centerX, relatedBy:.equal, toItem: view, attribute:.centerX, multiplier: 1, constant: 0))
-        //bottom
-        view.addConstraint(NSLayoutConstraint(item:addNewButton, attribute:.bottom, relatedBy:.equal, toItem: view, attribute:.bottom, multiplier: 1, constant: 0))
-
+      
+      //addNewButton
+      
+      //height
+      view.addConstraint(NSLayoutConstraint(item:addNewButton, attribute:.height, relatedBy:.equal, toItem: nil, attribute:.notAnAttribute, multiplier: 1, constant: .addNewButtonImageHeightConstraint))
+      //width
+      view.addConstraint(NSLayoutConstraint(item:addNewButton, attribute:.width, relatedBy:.equal, toItem: nil, attribute:.notAnAttribute, multiplier: 1, constant: .addNewButtonImageWidthConstraint))
+      //centered
+      view.addConstraint(NSLayoutConstraint(item:addNewButton, attribute:.centerX, relatedBy:.equal, toItem: view, attribute:.centerX, multiplier: 1, constant: 0))
+      //bottom
+      view.addConstraint(NSLayoutConstraint(item:addNewButton, attribute:.bottom, relatedBy:.equal, toItem: view, attribute:.bottom, multiplier: 1, constant: 0))
     }
   
     // MARK: - Actions
   
     func dismissView() {
       self.navigationController?.popViewController(animated: true)
+    }
+  
+    func addNote() {
+      
     }
 }
 
@@ -303,12 +321,12 @@ extension StudentProfileViewController : UITableViewDelegate, UITableViewDataSou
       if indexPath.section == 0 {
         switch indexPath.row {
         case 0:
-          return 100.0
+          return 120.0
         default:
           break
         }
       }
-      return 100.0
+      return 120.0
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -328,20 +346,28 @@ extension StudentProfileViewController : UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      let studentCell: PastMeetingsViewCell = PastMeetingsViewCell(style: .default, reuseIdentifier: "studentCell")
-      studentCell.selectionStyle = .none
-      return studentCell
+      let cell: MeetingNoteTableViewCell = MeetingNoteTableViewCell(style: .default, reuseIdentifier: "headerCell")
+      cell.selectionStyle = .none
+      if indexPath.section == 0 {
+        switch indexPath.row {
+        case 0:
+          return cell
+        default:
+          break
+        }
+      }
+      return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       tableView.deselectRow(at: indexPath, animated: true)
       if indexPath.section == 0 {
-        pushStudentProfileViewController()
+//        pushStudentProfileViewController()
       }
     }
     
-    func pushStudentProfileViewController() {
-      let studentProfileVC = StudentProfileViewController()
-      self.navigationController?.pushViewController(studentProfileVC, animated: true)
-    }
+//    func pushStudentProfileViewController() {
+//      let studentProfileVC = StudentProfileViewController()
+//      self.navigationController?.pushViewController(studentProfileVC, animated: true)
+//    }
 }
