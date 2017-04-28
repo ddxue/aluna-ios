@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		061759681EB2E6EB002F168C /* DailyDoseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061759671EB2E6EB002F168C /* DailyDoseViewController.swift */; };
+		0617596A1EB2E706002F168C /* MeetingNoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061759691EB2E706002F168C /* MeetingNoteTableViewCell.swift */; };
+		0617596C1EB2E9AB002F168C /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0617596B1EB2E9AB002F168C /* API.swift */; };
 		063410431EAD7B7B00E41951 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 063410421EAD7B7B00E41951 /* GoogleService-Info.plist */; };
 		0691C2A61EA40E2500213C61 /* StudentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691C2A51EA40E2500213C61 /* StudentViewCell.swift */; };
 		0691C2A91EA412D800213C61 /* PastMeetingsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691C2A71EA412D800213C61 /* PastMeetingsViewCell.swift */; };
@@ -40,6 +43,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		061759671EB2E6EB002F168C /* DailyDoseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyDoseViewController.swift; sourceTree = "<group>"; };
+		061759691EB2E706002F168C /* MeetingNoteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingNoteTableViewCell.swift; sourceTree = "<group>"; };
+		0617596B1EB2E9AB002F168C /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		063410421EAD7B7B00E41951 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0691C2A51EA40E2500213C61 /* StudentViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentViewCell.swift; sourceTree = "<group>"; };
 		0691C2A71EA412D800213C61 /* PastMeetingsViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastMeetingsViewCell.swift; sourceTree = "<group>"; };
@@ -180,7 +186,9 @@
 				68744B771E9C47B400E346AB /* LoginViewController.swift */,
 				68AE61A81E9CA1AE0027CFBC /* MainViewController.swift */,
 				681085F81EA200F400FB32F0 /* StudentProfileViewController.swift */,
+				0617596B1EB2E9AB002F168C /* API.swift */,
 				68392A281EA2F61700F4920F /* MenuViewController.swift */,
+				061759671EB2E6EB002F168C /* DailyDoseViewController.swift */,
 				68392A1F1EA2F0F900F4920F /* Animators */,
 				68AE61AC1E9CA53C0027CFBC /* Custom Views */,
 			);
@@ -191,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				68392A2C1EA3ECD900F4920F /* MeetingTableViewCell.swift */,
+				061759691EB2E706002F168C /* MeetingNoteTableViewCell.swift */,
 				0691C2A51EA40E2500213C61 /* StudentViewCell.swift */,
 				0691C2A71EA412D800213C61 /* PastMeetingsViewCell.swift */,
 				0691C2A81EA412D800213C61 /* PastMeetingsViewCell.xib */,
@@ -343,6 +352,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				68392A271EA2F20700F4920F /* PresentMenuAnimationController.swift in Sources */,
+				0617596C1EB2E9AB002F168C /* API.swift in Sources */,
+				061759681EB2E6EB002F168C /* DailyDoseViewController.swift in Sources */,
 				0691C2A61EA40E2500213C61 /* StudentViewCell.swift in Sources */,
 				68392A211EA2F11000F4920F /* MenuHelper.swift in Sources */,
 				68AE61AB1E9CA4FD0027CFBC /* ScalableButton.swift in Sources */,
@@ -354,6 +365,7 @@
 				68392A291EA2F61700F4920F /* MenuViewController.swift in Sources */,
 				68392A251EA2F17700F4920F /* DismissMenuAnimationController.swift in Sources */,
 				68392A2D1EA3ECD900F4920F /* MeetingTableViewCell.swift in Sources */,
+				0617596A1EB2E706002F168C /* MeetingNoteTableViewCell.swift in Sources */,
 				68392A2B1EA3053600F4920F /* MenuTableViewCell.swift in Sources */,
 				681B5A8B1E9C90500074C27A /* UIFont+Helper.swift in Sources */,
 				681085F91EA200F400FB32F0 /* StudentProfileViewController.swift in Sources */,
