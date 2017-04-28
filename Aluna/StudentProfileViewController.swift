@@ -26,6 +26,9 @@ private extension CGFloat {
   static let titleLabelHeightConstraint:CGFloat = 50.0
   static let bannerImageHeightConstraint:CGFloat = 220.0
   static let segmentedControlHeightConstraint:CGFloat = 60.0
+    
+    static let addNewButtonImageHeightConstraint:CGFloat = 70.0
+    static let addNewButtonImageWidthConstraint:CGFloat = 70.0
 }
 
 class StudentProfileViewController: UIViewController {
@@ -49,6 +52,16 @@ class StudentProfileViewController: UIViewController {
     
     searchButton.translatesAutoresizingMaskIntoConstraints = false
     return searchButton
+    }()
+    
+  private lazy var addNewButton: UIButton = { [unowned self] in
+    let addNewButton = ScalableButton(type: .custom)
+    let addNewImage = UIImage(named:"plus-thin.png")
+    addNewButton.setImage(addNewImage, for: UIControlState())
+    addNewButton.addTarget(self, action: #selector(dismissView), for: .touchUpInside)
+        
+    addNewButton.translatesAutoresizingMaskIntoConstraints = false
+    return addNewButton
     }()
   
   private lazy var bannerImageView: UIImageView = { [unowned self] in
@@ -193,6 +206,7 @@ class StudentProfileViewController: UIViewController {
       view.addSubview(titleLabel)
       view.addSubview(studentSegmentedControl)
       view.addSubview(studentTable)
+      view.addSubview(addNewButton)
     }
     
     func addConstraints() {
@@ -262,6 +276,17 @@ class StudentProfileViewController: UIViewController {
       view.addConstraint(NSLayoutConstraint(item:studentTable, attribute:.left, relatedBy:.equal, toItem: view, attribute:.left, multiplier: 1, constant: 0))
       //right
       view.addConstraint(NSLayoutConstraint(item:studentTable, attribute:.right, relatedBy:.equal, toItem: view, attribute:.right, multiplier: 1, constant: 0))
+        
+        //addNewButton
+        
+        //height
+        view.addConstraint(NSLayoutConstraint(item:addNewButton, attribute:.height, relatedBy:.equal, toItem: nil, attribute:.notAnAttribute, multiplier: 1, constant: .addNewButtonImageHeightConstraint))
+        //width
+        view.addConstraint(NSLayoutConstraint(item:addNewButton, attribute:.width, relatedBy:.equal, toItem: nil, attribute:.notAnAttribute, multiplier: 1, constant: .addNewButtonImageWidthConstraint))
+        //centered
+        view.addConstraint(NSLayoutConstraint(item:addNewButton, attribute:.centerX, relatedBy:.equal, toItem: view, attribute:.centerX, multiplier: 1, constant: 0))
+        //bottom
+        view.addConstraint(NSLayoutConstraint(item:addNewButton, attribute:.bottom, relatedBy:.equal, toItem: view, attribute:.bottom, multiplier: 1, constant: 0))
 
     }
   
@@ -303,19 +328,9 @@ extension StudentProfileViewController : UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      let cell: UITableViewCell = UITableViewCell(style: .default, reuseIdentifier: "headerCell")
-      cell.selectionStyle = .none
-      if indexPath.section == 0 {
-        switch indexPath.row {
-        case 0:
-          return cell
-        case 1:
-          return cell
-        default:
-          break
-        }
-      }
-      return cell
+      let studentCell: PastMeetingsViewCell = PastMeetingsViewCell(style: .default, reuseIdentifier: "studentCell")
+      studentCell.selectionStyle = .none
+      return studentCell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

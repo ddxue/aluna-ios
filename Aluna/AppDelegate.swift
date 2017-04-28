@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -31,6 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // Make the window visible
     window!.makeKeyAndVisible()
+   
+    // Use Firebase library to configure APIs
+    FIRApp.configure()
 
     return true
   }

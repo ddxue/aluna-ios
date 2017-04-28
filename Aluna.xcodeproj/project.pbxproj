@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		063410431EAD7B7B00E41951 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 063410421EAD7B7B00E41951 /* GoogleService-Info.plist */; };
+		0691C2A61EA40E2500213C61 /* StudentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691C2A51EA40E2500213C61 /* StudentViewCell.swift */; };
+		0691C2A91EA412D800213C61 /* PastMeetingsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691C2A71EA412D800213C61 /* PastMeetingsViewCell.swift */; };
+		0691C2AA1EA412D800213C61 /* PastMeetingsViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0691C2A81EA412D800213C61 /* PastMeetingsViewCell.xib */; };
 		24C8F5058C3B348F9F982976 /* Pods_Aluna.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7009528AD47AEE3886F0BC74 /* Pods_Aluna.framework */; };
 		681085F91EA200F400FB32F0 /* StudentProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681085F81EA200F400FB32F0 /* StudentProfileViewController.swift */; };
 		681B5A8B1E9C90500074C27A /* UIFont+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681B5A8A1E9C90500074C27A /* UIFont+Helper.swift */; };
@@ -36,6 +40,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		063410421EAD7B7B00E41951 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0691C2A51EA40E2500213C61 /* StudentViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentViewCell.swift; sourceTree = "<group>"; };
+		0691C2A71EA412D800213C61 /* PastMeetingsViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastMeetingsViewCell.swift; sourceTree = "<group>"; };
+		0691C2A81EA412D800213C61 /* PastMeetingsViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PastMeetingsViewCell.xib; sourceTree = "<group>"; };
 		681085F81EA200F400FB32F0 /* StudentProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentProfileViewController.swift; sourceTree = "<group>"; };
 		681B5A8A1E9C90500074C27A /* UIFont+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIFont+Helper.swift"; path = "../../aluna/Aluna/UIFont+Helper.swift"; sourceTree = "<group>"; };
 		681B5A8D1E9C9B1A0074C27A /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
@@ -161,6 +169,7 @@
 				68744B7C1E9C47B400E346AB /* Assets.xcassets */,
 				681B5A8C1E9C9AFE0074C27A /* Fonts */,
 				68744B811E9C47B400E346AB /* Info.plist */,
+				063410421EAD7B7B00E41951 /* GoogleService-Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -182,6 +191,9 @@
 			isa = PBXGroup;
 			children = (
 				68392A2C1EA3ECD900F4920F /* MeetingTableViewCell.swift */,
+				0691C2A51EA40E2500213C61 /* StudentViewCell.swift */,
+				0691C2A71EA412D800213C61 /* PastMeetingsViewCell.swift */,
+				0691C2A81EA412D800213C61 /* PastMeetingsViewCell.xib */,
 				68392A2A1EA3053600F4920F /* MenuTableViewCell.swift */,
 				68AE61AA1E9CA4FD0027CFBC /* ScalableButton.swift */,
 			);
@@ -259,6 +271,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				063410431EAD7B7B00E41951 /* GoogleService-Info.plist in Resources */,
 				681B5A971E9C9BAF0074C27A /* OpenSans-Semibold.ttf in Resources */,
 				681B5A9C1E9C9BB10074C27A /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 				681B5A981E9C9BB10074C27A /* OpenSans-SemiboldItalic.ttf in Resources */,
@@ -267,6 +280,7 @@
 				681B5A9E1E9C9BB10074C27A /* OpenSans-LightItalic.ttf in Resources */,
 				681B5A9A1E9C9BB10074C27A /* OpenSans-BoldItalic.ttf in Resources */,
 				68744B801E9C47B400E346AB /* LaunchScreen.storyboard in Resources */,
+				0691C2AA1EA412D800213C61 /* PastMeetingsViewCell.xib in Resources */,
 				681B5A961E9C9BAC0074C27A /* OpenSans-Regular.ttf in Resources */,
 				681B5A9D1E9C9BB10074C27A /* OpenSans-Light.ttf in Resources */,
 				68744B7D1E9C47B400E346AB /* Assets.xcassets in Resources */,
@@ -303,7 +317,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		9B14410D1C4C8198F7D4D4F4 /* [CP] Embed Pods Frameworks */ = {
@@ -329,8 +343,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				68392A271EA2F20700F4920F /* PresentMenuAnimationController.swift in Sources */,
+				0691C2A61EA40E2500213C61 /* StudentViewCell.swift in Sources */,
 				68392A211EA2F11000F4920F /* MenuHelper.swift in Sources */,
 				68AE61AB1E9CA4FD0027CFBC /* ScalableButton.swift in Sources */,
+				0691C2A91EA412D800213C61 /* PastMeetingsViewCell.swift in Sources */,
 				68744B781E9C47B400E346AB /* LoginViewController.swift in Sources */,
 				68392A231EA2F13F00F4920F /* Interactor.swift in Sources */,
 				681B5AA01E9C9CBA0074C27A /* UIColor+Helper.swift in Sources */,

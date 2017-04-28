@@ -6,4 +6,6 @@ source 'https://github.com/CocoaPods/Specs.git'
 target 'Aluna' do
     pod 'MSSlidingPanelController'
     pod 'Segmentio', '~> 2.1'
+    pod 'Firebase/Core'
+    pod 'Firebase/Database'
 end
