@@ -39,7 +39,7 @@ class API {
      “teachers”:  {
         “teacherID”: {
      “username”: “teacher@email.com”
-     “fullName”:
+     “name”:
         “students”: [“studentID_1”, “studentID_2”, ...]
      }
      }
