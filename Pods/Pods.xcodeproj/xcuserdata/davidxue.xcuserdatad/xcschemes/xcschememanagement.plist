@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>GTMSessionFetcher.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>GoogleToolboxForMac.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MSSlidingPanelController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,27 +42,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>06AED98AAAE6E56DF7646CAB23CC412B</key>
+		<key>46F42034FA358E94C9AEEBFEE250D3C1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1A38539E5023C874828222DD57481755</key>
+		<key>477FCC0D53DDEABBB8E444CD6151C804</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1AF9167E9DCE513D0BD0AEC588559AE6</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>8B66A814156E19B531534D2D40CCED82</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>903802D05C224E220DA4AB8F8A59429F</key>
+		<key>644E49D4EFE12EB6D9812B09E326962D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,7 +62,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ECC21CB269CE525003349180EE6B5DC3</key>
+		<key>C052BEBFBD0AB5218CC64BA3450F6547</key>
 		<dict>
 			<key>primary</key>
 			<true/>

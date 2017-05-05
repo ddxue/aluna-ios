@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import FirebaseDatabase
-import FirebaseStorage
+//import FirebaseStorage
 
 class Team: CustomStringConvertible {
     
