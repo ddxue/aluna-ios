@@ -69,8 +69,8 @@ class Student: CustomStringConvertible {
       self.photoURL = URL(string: photoURL)
     }
     
-    self.reference = API.usersReference.child(self.key)
-    self.profileImageReference = API.userImagesReference.child(self.key)
+    self.reference = API.studentsReference.child(self.key)
+    self.profileImageReference = API.studentImagesReference.child(self.key)
   }
   
   // reference: https://firebase.google.com/docs/storage/ios/download-files
@@ -84,11 +84,19 @@ class Student: CustomStringConvertible {
           }
       })
   }
-
-  func updateDescription(to desc: String) {
-    self.desc = desc
-    reference.child("desc").setValue(desc)
-  }
+  var description: String { get {
+        let data = [
+            "key": key,
+            "name": name,
+            "photoURL": String(describing: photoURL),
+            "parent1_contact": parent1_contact,
+            "parent2_contact": parent2_contact,
+            "interests": String(describing: interests),
+            "academicGoals": String(describing: academicGoals),
+            "socialGoals": String(describing: socialGoals)
+        ]
+        return String(describing: data)
+    } }
   
   // reference: https://firebase.google.com/docs/storage/ios/upload-files
   func updateProfileImage(to imageData: Data, completed: ((FIRStorageMetadata?, Error?) -> Void)?) {
