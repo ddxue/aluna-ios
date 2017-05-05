@@ -11,6 +11,7 @@
 		0691C2A61EA40E2500213C61 /* StudentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691C2A51EA40E2500213C61 /* StudentViewCell.swift */; };
 		0691C2A91EA412D800213C61 /* PastMeetingsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691C2A71EA412D800213C61 /* PastMeetingsViewCell.swift */; };
 		0691C2AA1EA412D800213C61 /* PastMeetingsViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0691C2A81EA412D800213C61 /* PastMeetingsViewCell.xib */; };
+		06B5D2211EBC19E300F2C1CF /* Recap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06B5D2201EBC19E300F2C1CF /* Recap.swift */; };
 		24C8F5058C3B348F9F982976 /* Pods_Aluna.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7009528AD47AEE3886F0BC74 /* Pods_Aluna.framework */; };
 		681085F91EA200F400FB32F0 /* StudentProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681085F81EA200F400FB32F0 /* StudentProfileViewController.swift */; };
 		681B5A8B1E9C90500074C27A /* UIFont+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681B5A8A1E9C90500074C27A /* UIFont+Helper.swift */; };
@@ -50,6 +51,7 @@
 		0691C2A51EA40E2500213C61 /* StudentViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentViewCell.swift; sourceTree = "<group>"; };
 		0691C2A71EA412D800213C61 /* PastMeetingsViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastMeetingsViewCell.swift; sourceTree = "<group>"; };
 		0691C2A81EA412D800213C61 /* PastMeetingsViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PastMeetingsViewCell.xib; sourceTree = "<group>"; };
+		06B5D2201EBC19E300F2C1CF /* Recap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recap.swift; sourceTree = "<group>"; };
 		681085F81EA200F400FB32F0 /* StudentProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentProfileViewController.swift; sourceTree = "<group>"; };
 		681B5A8A1E9C90500074C27A /* UIFont+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIFont+Helper.swift"; path = "../../aluna/Aluna/UIFont+Helper.swift"; sourceTree = "<group>"; };
 		681B5A8D1E9C9B1A0074C27A /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 			children = (
 				68A6C40E1EBC139C0092E3A3 /* API.swift */,
 				6854E5DA1EB2ECB200EA8889 /* Student.swift */,
+				06B5D2201EBC19E300F2C1CF /* Recap.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				68744B781E9C47B400E346AB /* LoginViewController.swift in Sources */,
 				68392A231EA2F13F00F4920F /* Interactor.swift in Sources */,
 				681B5AA01E9C9CBA0074C27A /* UIColor+Helper.swift in Sources */,
+				06B5D2211EBC19E300F2C1CF /* Recap.swift in Sources */,
 				68744B761E9C47B400E346AB /* AppDelegate.swift in Sources */,
 				68A6C4111EBC13E50092E3A3 /* DailyDoseViewController.swift in Sources */,
 				68392A2F1EA4002600F4920F /* MeetingNoteTableViewCell.swift in Sources */,
