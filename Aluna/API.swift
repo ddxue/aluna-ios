@@ -89,6 +89,12 @@ class API {
         })
     }
     
+    class func createStudentWithKey(_ key: String, studentInfo: Dictionary<String, AnyObject>) -> Student {
+        let studentReference = studentsReference.child(key)
+        studentReference.setValue(studentInfo)
+        return Student(key: key, dictionary: studentInfo)
+    }
+    
     class func getTeacherWithKey(_ key: String, completed: ((Teacher?) -> Void)?) {
         teachersReference.child(key).observeSingleEvent(of: .value, with: { snapshot in
             var teacher: Teacher?
