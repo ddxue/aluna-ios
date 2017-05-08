@@ -103,44 +103,4 @@ class Student: CustomStringConvertible {
       profileImageReference.put(imageData, metadata: nil, completion: completed)
   }
 
-  
-  //
-  //    func getTeams(completed: (([Team]) -> Void)?) {
-  //        API.getTeamsInList(teamKeys: teamKeys, index: 0, teams: [], completed: completed)
-  //    }
-  //
-  //
-  //
-  //    func addSkill(_ skill: String) {
-  //        self.skills.append(skill)
-  //        reference.child("skills").child(skill).setValue(true)
-  //        API.skillsReference.child(skill).child(key).setValue(true)
-  //    }
-  //
-  //    func removeSkill(_ skill: String) {
-  //        if let index = skills.index(of: skill) {
-  //            skills.remove(at: index)
-  //        }
-  //        reference.child("skills").child(skill).removeValue()
-  //        API.skillsReference.child(skill).child(key).removeValue()
-  //    }
-  //
-  //    func addBadge(_ badge: String) {
-  //        self.badges.append(badge)
-  //        reference.child("badges").child(badge).setValue(true)
-  //    }
-  //
-  //    var description: String { get {
-  //        let data = [
-  //            "key": key,
-  //            "name": name,
-  //            "desc": desc,
-  //            "photoURL": String(describing: photoURL),
-  //            "email": email,
-  //            "skills": String(describing: skills),
-  //            "badges": String(describing: badges),
-  //            "teamKeys": String(describing: teamKeys)
-  //        ]
-  //        return String(describing: data)
-  //    } }
 }

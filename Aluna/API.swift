@@ -106,32 +106,35 @@ class API {
             var recap: Recap?
             
             if let dictionary = snapshot.value as? Dictionary<String, AnyObject> {
-                recap = Recap(key: key, dictionary: dictionary)
+                recap = Recap(key: studentID, dictionary: dictionary)
             }
             
             completed?(recap)
         })
     }
     
+    class func createRecapWithCurrentDate(_ userInfo: Dictionary<String, AnyObject>) -> Recap {
+        let currentTime = Date();
+        let currTimeAsString = String(describing: currentTime)
+        let recapReference = recapsReference.child(currTimeAsString)
+        recapReference.setValue(userInfo)
+        return Recap(key: currTimeAsString, dictionary: userInfo)
+    }
+    
     func getMeetingsForTeacher(_ teacherID: String, completed: ((NSArray?) -> Void)?) {
-        meetingsReference.child(teacherID).observeSingleEvent(of: .value, with: { snapshot in
-            var meetings: NSArray?
-            
-            if let meetings = snapshot.value as? NSArray {
-                return meetings
-            }
+        API.meetingsReference.child(teacherID).observeSingleEvent(of: .value, with: { snapshot in
+            let meetings = snapshot.value as! NSArray
+            completed?(meetings);
         })
     }
     
     
-    func getDailyDose() {
-        dailyDoseReference.child("Message").observeSingleEvent(of: .value, with: { snapshot in
-            var message: String?
-            
-            if let message = snapshot.value as? String {
-                return message;
-            }
+    class func getDailyDose(completed: ((String) -> Void)?) {
+        API.dailyDoseReference.child("Message").observeSingleEvent(of: .value, with: { snapshot in
+            let message = snapshot.value as! String
+            completed?(message);
         })
+        
     }
 
 }
