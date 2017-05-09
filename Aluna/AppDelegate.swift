@@ -38,6 +38,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
    // CreateStudents.addStudents()
+    //CreateStudents.addTeachers()
+    //CreateStudents.addMeetings()
+    //CreateStudents.addDailyDoseMessage()
 
     //    for familyName in UIFont.familyNames {
     //      for fontName in UIFont.fontNames(forFamilyName: familyName ) {

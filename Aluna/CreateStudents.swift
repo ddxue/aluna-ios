@@ -97,4 +97,54 @@ class CreateStudents {
     }
 
     //*/
+    
+    class func addTeachers() {
+    /*
+        “teachers”:  {
+            “teacherID”: {
+                “username”: “teacher@email.com”
+                “name”:
+                “students”: [“studentID_1”, “studentID_2”, ...]
+            }
+        }
+   */
+        let teacherIDs = ["T001", "T002"]
+        
+        let teacher1Students = ["0001", "0002"]
+        let teacherInfo1 = [
+            "key" : "T001",
+            "username" : "teacher1@school.org",
+            "students" : String(describing: teacher1Students)
+        ]
+       
+        let teacher2Students = ["0003", "0004"]
+        let teacherInfo2 = [
+            "key" : "T002",
+            "username" : "teacher2@school.org",
+            "students" : String(describing: teacher2Students)
+        ]
+        
+        let teacherInfos = [teacherInfo1, teacherInfo2]
+        
+        for index in 0...1 {
+            API.createTeacherWithKey(teacherIDs[index], teacherInfo: teacherInfos[index] as Dictionary<String, AnyObject>)
+        }
+        
+    }
+    
+    class func addMeetings() {
+        /*
+        “meetings”: {
+            “teacherID”: [studentID, ...],
+            
+        }
+        */
+        API.meetingsReference.child("T001").setValue(["0002", "0001"])
+        API.meetingsReference.child("T002").setValue(["0003", "0004"])
+        
+    }
+    
+    class func addDailyDoseMessage() {
+        API.dailyDoseReference.child("message").setValue("Good teaching is one-fourth preparation and three-fourths theatre. -Gail Goldwin")
+    }
 }

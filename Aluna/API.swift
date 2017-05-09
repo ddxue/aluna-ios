@@ -50,7 +50,7 @@ class API {
      }
      
      “dailyDose” : {
-        “Message” : “”
+        “message” : “”
      }
  */
     
@@ -119,6 +119,12 @@ class API {
         })
     }
     
+    class func createTeacherWithKey(_ key: String, teacherInfo: Dictionary<String, AnyObject>) -> Teacher {
+        let teacherReference = teachersReference.child(key)
+        teacherReference.setValue(teacherInfo)
+        return Teacher(key: key, dictionary: teacherInfo)
+    }
+    
     class func createRecapWithCurrentDate(_ userInfo: Dictionary<String, AnyObject>) -> Recap {
         let currentTime = Date();
         let currTimeAsString = String(describing: currentTime)
@@ -136,7 +142,7 @@ class API {
     
     
     class func getDailyDose(completed: ((String) -> Void)?) {
-        API.dailyDoseReference.child("Message").observeSingleEvent(of: .value, with: { snapshot in
+        API.dailyDoseReference.child("message").observeSingleEvent(of: .value, with: { snapshot in
             let message = snapshot.value as! String
             completed?(message);
         })
