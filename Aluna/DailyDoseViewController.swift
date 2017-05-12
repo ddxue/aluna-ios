@@ -32,7 +32,8 @@ class DailyDoseViewController : UIViewController {
   // MARK: - Data
   
   var tipTitle: String? = "Tip of the Day"
-  var tipDescription: String? = "If you have a difficult student, try moving them closer to your desk to see if proximity limits their behavior."
+  var tipDescription: String? = "The tip will go here"
+  //var tipDescription: String? = API.getDailyDose(completed: )
   
   // MARK: - Views
   
