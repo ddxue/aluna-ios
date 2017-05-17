@@ -21,32 +21,31 @@ class API {
             “parent2_contactInfo”:
             “Interests”: [“interest1”, “interest2”, ...]
             “academicGoals”:[]
-            “socialGoals”:
+            “socialGoals”:[]
             “profileURL”: "imageID"
         },
      }
      
      “recaps”: {
-        “studentID”: [“2017.04.24” : {
-     “recap notes”: “”
-     “topics” : []
-     “location” : “”
-     “audio” : "audioID"
-     }, ... ]
-     }
+        “studentID”: [“2017.04.24”: {
+           “recap notes”: “”
+           “topics” : []
+           “location” : “”
+           “audio” : "audioID"
+           }, ... ]
+        }
      }
      
      “teachers”:  {
         “teacherID”: {
-     “username”: “teacher@email.com”
-     “name”:
-        “students”: [“studentID_1”, “studentID_2”, ...]
-     }
+          “username”: “teacher@email.com”
+          “name”:
+          “students”: [“studentID_1”, “studentID_2”, ...]
+         }
      }
      
      “meetings”: {
         “teacherID”: [studentID, ...],
-     
      }
      
      “dailyDose” : {
@@ -75,6 +74,7 @@ class API {
     static let storage = FIRStorage.storage()
     static let storageReference = storage.reference()
     static let studentImagesReference = storageReference.child("studentImages")
+    static let teacherImageReference = storageReference.child("teacherImage")
     static let recapAudioReference = storageReference.child("recapAudio")
     
     class func getStudentWithKey(_ key: String, completed: ((Student?) -> Void)?) {
@@ -103,34 +103,36 @@ class API {
     
     class func getRecapWithStudentID(_ studentID: String, completed: ((Recap?) -> Void)?) {
         recapsReference.child(studentID).observeSingleEvent(of: .value, with: { snapshot in
-            var recap: Recap?
-            
-            if let dictionary = snapshot.value as? Dictionary<String, AnyObject> {
-                recap = Recap(key: key, dictionary: dictionary)
-            }
-            
-            completed?(recap)
+//            var recap: Recap?
+//            
+//            if let dictionary = snapshot.value as? Dictionary<String, AnyObject> {
+////                recap = Recap(key: key, dictionary: dictionary)
+//            }
+//            
+//            completed?(recap)
         })
     }
     
-    func getMeetingsForTeacher(_ teacherID: String, completed: ((NSArray?) -> Void)?) {
+    class func getMeetingsForTeacher(_ teacherID: String, completed: ((NSArray?) -> Void)?) {
         meetingsReference.child(teacherID).observeSingleEvent(of: .value, with: { snapshot in
-            var meetings: NSArray?
-            
-            if let meetings = snapshot.value as? NSArray {
-                return meetings
-            }
+//            var meetings: NSArray?
+//          
+//            if let dictionary = snapshot.value as? NSArray {
+//                meetings
+//            }
+          
+//            completed?(meetings)
         })
     }
     
     
-    func getDailyDose() {
+    class func getDailyDose() {
         dailyDoseReference.child("Message").observeSingleEvent(of: .value, with: { snapshot in
-            var message: String?
-            
-            if let message = snapshot.value as? String {
-                return message;
-            }
+//            var message: String?
+//            
+//            if let message = snapshot.value as? String {
+//                return message;
+//            }
         })
     }
 
