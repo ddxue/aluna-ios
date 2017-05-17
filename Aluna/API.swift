@@ -109,7 +109,7 @@ class API {
     
     class func getRecapWithStudentID(_ studentID: String, completed: ((Recap?) -> Void)?) {
         recapsReference.child(studentID).observeSingleEvent(of: .value, with: { snapshot in
-            let recap: Recap?
+            var recap: Recap?
             
             if let dictionary = snapshot.value as? Dictionary<String, AnyObject> {
                 recap = Recap(key: studentID, dictionary: dictionary)

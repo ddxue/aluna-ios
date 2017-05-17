@@ -9,6 +9,11 @@
 import UIKit
 
 private extension CGFloat {
+  static let backButtonHeightConstraint:CGFloat = 28.0
+  static let backButtonWidthConstraint:CGFloat = 18.0
+  static let backButtonLeftConstraint:CGFloat = 15.0
+  static let backButtonTopConstraint:CGFloat = 35.0
+  
   static let closeButtonHeightConstraint:CGFloat = 28.0
   static let closeButtonWidthConstraint:CGFloat = 18.0
   static let closeButtonLeftConstraint:CGFloat = 15.0
@@ -182,14 +187,14 @@ class CreateRecapViewController: UIViewController {
     
     //recapTable
     
-    //top
-    view.addConstraint(NSLayoutConstraint(item:recapTable, attribute:.top, relatedBy:.equal, toItem: studentSegmentedControl, attribute:.bottom, multiplier: 1, constant: 0))
-    //bottom
-    view.addConstraint(NSLayoutConstraint(item:recapTable, attribute:.bottom, relatedBy:.equal, toItem: view, attribute:.bottom, multiplier: 1, constant: 0))
-    //left
-    view.addConstraint(NSLayoutConstraint(item:recapTable, attribute:.left, relatedBy:.equal, toItem: view, attribute:.left, multiplier: 1, constant: 0))
-    //right
-    view.addConstraint(NSLayoutConstraint(item:recapTable, attribute:.right, relatedBy:.equal, toItem: view, attribute:.right, multiplier: 1, constant: 0))
+//    //top
+//    view.addConstraint(NSLayoutConstraint(item:recapTable, attribute:.top, relatedBy:.equal, toItem: studentSegmentedControl, attribute:.bottom, multiplier: 1, constant: 0))
+//    //bottom
+//    view.addConstraint(NSLayoutConstraint(item:recapTable, attribute:.bottom, relatedBy:.equal, toItem: view, attribute:.bottom, multiplier: 1, constant: 0))
+//    //left
+//    view.addConstraint(NSLayoutConstraint(item:recapTable, attribute:.left, relatedBy:.equal, toItem: view, attribute:.left, multiplier: 1, constant: 0))
+//    //right
+//    view.addConstraint(NSLayoutConstraint(item:recapTable, attribute:.right, relatedBy:.equal, toItem: view, attribute:.right, multiplier: 1, constant: 0))
     
     //addNewButton
     
