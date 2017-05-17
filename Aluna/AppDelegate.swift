@@ -35,6 +35,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // Make the window visible
     window!.makeKeyAndVisible()
+    
+    
+    //CreateStudents.addStudents()
+    //CreateStudents.addTeachers()
+    //CreateStudents.addMeetings()
+    //CreateStudents.addDailyDoseMessage()
 
     //    for familyName in UIFont.familyNames {
     //      for fontName in UIFont.fontNames(forFamilyName: familyName ) {

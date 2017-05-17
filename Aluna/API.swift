@@ -49,7 +49,7 @@ class API {
      }
      
      “dailyDose” : {
-        “Message” : “”
+        “message” : “”
      }
  */
     
@@ -89,6 +89,12 @@ class API {
         })
     }
     
+    class func createStudentWithKey(_ key: String, studentInfo: Dictionary<String, AnyObject>) -> Student {
+        let studentReference = studentsReference.child(key)
+        studentReference.setValue(studentInfo)
+        return Student(key: key, dictionary: studentInfo)
+    }
+    
     class func getTeacherWithKey(_ key: String, completed: ((Teacher?) -> Void)?) {
         teachersReference.child(key).observeSingleEvent(of: .value, with: { snapshot in
             var teacher: Teacher?
@@ -103,36 +109,54 @@ class API {
     
     class func getRecapWithStudentID(_ studentID: String, completed: ((Recap?) -> Void)?) {
         recapsReference.child(studentID).observeSingleEvent(of: .value, with: { snapshot in
-//            var recap: Recap?
-//            
-//            if let dictionary = snapshot.value as? Dictionary<String, AnyObject> {
-////                recap = Recap(key: key, dictionary: dictionary)
-//            }
-//            
-//            completed?(recap)
+            let recap: Recap?
+            
+            if let dictionary = snapshot.value as? Dictionary<String, AnyObject> {
+                recap = Recap(key: studentID, dictionary: dictionary)
+            }
+          
+            completed?(recap)
         })
     }
     
     class func getMeetingsForTeacher(_ teacherID: String, completed: ((NSArray?) -> Void)?) {
         meetingsReference.child(teacherID).observeSingleEvent(of: .value, with: { snapshot in
-//            var meetings: NSArray?
-//          
-//            if let dictionary = snapshot.value as? NSArray {
-//                meetings
-//            }
+            var meetings: NSArray?
           
-//            completed?(meetings)
+            if let dictionary = snapshot.value as? NSArray {
+//                meetings
+            }
+          
+            completed?(meetings)
         })
     }
     
+    class func createTeacherWithKey(_ key: String, teacherInfo: Dictionary<String, AnyObject>) -> Teacher {
+        let teacherReference = teachersReference.child(key)
+        teacherReference.setValue(teacherInfo)
+        return Teacher(key: key, dictionary: teacherInfo)
+    }
     
-    class func getDailyDose() {
-        dailyDoseReference.child("Message").observeSingleEvent(of: .value, with: { snapshot in
-//            var message: String?
-//            
-//            if let message = snapshot.value as? String {
-//                return message;
-//            }
+    class func createRecapWithCurrentDate(_ userInfo: Dictionary<String, AnyObject>) -> Recap {
+        let currentTime = Date();
+        let currTimeAsString = String(describing: currentTime)
+        let recapReference = recapsReference.child(currTimeAsString)
+        recapReference.setValue(userInfo)
+        return Recap(key: currTimeAsString, dictionary: userInfo)
+    }
+    
+    func getMeetingsForTeacher(_ teacherID: String, completed: ((NSArray?) -> Void)?) {
+        API.meetingsReference.child(teacherID).observeSingleEvent(of: .value, with: { snapshot in
+            let meetings = snapshot.value as! NSArray
+            completed?(meetings);
+        })
+    }
+    
+  
+    class func getDailyDose(completed: ((String) -> Void)?) {
+        API.dailyDoseReference.child("message").observeSingleEvent(of: .value, with: { snapshot in
+            let message = snapshot.value as! String
+            completed?(message);
         })
     }
 

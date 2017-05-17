@@ -31,7 +31,7 @@ class MeetingTableViewCell: UITableViewCell {
   
   // MARK: - Data
   
-  var nameText:String = "Susie Johnston" {
+  var nameText:String = "Error" {
     didSet {
       nameLabel.text = nameText
     }
@@ -88,12 +88,13 @@ class MeetingTableViewCell: UITableViewCell {
   
   // MARK: - Init
   
-  override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+   init(style: UITableViewCellStyle, reuseIdentifier: String?, name: String) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     
     backgroundColor = UIColor.white
     selectionStyle = .gray
     accessibilityLabel = "meetingCell"
+    nameText = name
     
     contentView.addSubview(profileImageView)
     contentView.addSubview(nameLabel)
