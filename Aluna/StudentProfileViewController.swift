@@ -38,7 +38,7 @@ private extension CGFloat {
 class StudentProfileViewController: UIViewController {
   
   // MARK: - Views
-  
+    
   private lazy var backButton: UIButton = { [unowned self] in
     let backButton = ScalableButton(type: .custom)
     backButton.setImage(UIImage(named:"back-button.png"), for: UIControlState())
@@ -185,7 +185,7 @@ class StudentProfileViewController: UIViewController {
     
     override func viewDidLoad() {
       super.viewDidLoad()
-      
+        
       navigationController?.setNavigationBarHidden(true, animated: true)
 
       addSubviews()
@@ -347,6 +347,7 @@ extension StudentProfileViewController : UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       let cell: MeetingNoteTableViewCell = MeetingNoteTableViewCell(style: .default, reuseIdentifier: "headerCell")
+        
       cell.selectionStyle = .none
       if indexPath.section == 0 {
         switch indexPath.row {
