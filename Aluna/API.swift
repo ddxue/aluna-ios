@@ -77,6 +77,13 @@ class API {
     static let studentImagesReference = storageReference.child("studentImages")
     static let recapAudioReference = storageReference.child("recapAudio")
     
+    /*class func getStudentsForTeacher(_ key: String, completed: ((NSArray?) -> Void)?) {
+        studentsReference.observeSingleEvent(of: .value, with: { snapshot in
+            let students = snapshot.value as! NSArray
+            completed?(students);
+        })
+    }*/
+    
     class func getStudentWithKey(_ key: String, completed: ((Student?) -> Void)?) {
         studentsReference.child(key).observeSingleEvent(of: .value, with: { snapshot in
             var student: Student?
@@ -133,13 +140,18 @@ class API {
         return Recap(key: currTimeAsString, dictionary: userInfo)
     }
     
-    func getMeetingsForTeacher(_ teacherID: String, completed: ((NSArray?) -> Void)?) {
+    class func getMeetingsForTeacher(_ teacherID: String, completed: ((NSArray?) -> Void)?) {
         API.meetingsReference.child(teacherID).observeSingleEvent(of: .value, with: { snapshot in
-            let meetings = snapshot.value as! NSArray
-            completed?(meetings);
+            let meetingsIDs = snapshot.value as! NSArray
+            /*var meetings = [NSArray]()
+            for id in meetingsIDs {
+                self.getStudentWithKey(id as! String, completed: { student in self?.meetingsIDs
+                    meetings.append(student)
+                })
+            }*/
+            completed?(meetingsIDs);
         })
     }
-    
     
     class func getDailyDose(completed: ((String) -> Void)?) {
         API.dailyDoseReference.child("message").observeSingleEvent(of: .value, with: { snapshot in
