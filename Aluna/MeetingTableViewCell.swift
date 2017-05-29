@@ -88,13 +88,12 @@ class MeetingTableViewCell: UITableViewCell {
   
   // MARK: - Init
   
-   init(style: UITableViewCellStyle, reuseIdentifier: String?, name: String) {
+   override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     
     backgroundColor = UIColor.white
     selectionStyle = .gray
     accessibilityLabel = "meetingCell"
-    nameText = name
     
     contentView.addSubview(profileImageView)
     contentView.addSubview(nameLabel)
