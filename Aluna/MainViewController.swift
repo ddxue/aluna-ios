@@ -463,13 +463,14 @@ extension MainViewController : UITableViewDelegate, UITableViewDataSource {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
     if indexPath.section == 0 {
-       pushStudentProfileViewController()
+       pushStudentProfileViewController(indexPath: indexPath)
     }
   }
   
-  func pushStudentProfileViewController() {
-    let studentProfileVC = StudentProfileViewController()
-    self.navigationController?.pushViewController(studentProfileVC, animated: true)
+    func pushStudentProfileViewController(indexPath: IndexPath) {
+        let studentProfileVC = StudentProfileViewController()
+        studentProfileVC.student = (studentsList[indexPath.row] as! Student)
+        self.navigationController?.pushViewController(studentProfileVC, animated: true)
   }
 }
 
