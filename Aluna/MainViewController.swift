@@ -35,7 +35,6 @@ private extension CGFloat {
 }
 
 class MainViewController: UIViewController {
-  
   // MARK: - Data
   
   let interactor = Interactor()
@@ -43,6 +42,33 @@ class MainViewController: UIViewController {
   fileprivate let presentMenuAnimationController = PresentMenuAnimationController()
 
   fileprivate let dismissMenuAnimationController = DismissMenuAnimationController()
+    
+    var studentsList: NSMutableArray = []
+    
+    var student: Student? {
+        didSet {
+            NSLog("student is: ")
+            NSLog(String(describing: student))
+            studentsList.add(student)
+            NSLog("student list is: ")
+            NSLog(String(describing: studentsList))
+            if studentsList.count >= 5 {
+                self.meetingsTable.reloadData()
+            }
+        }
+    }
+    
+    var meetings: NSArray = [] {
+        didSet {
+            for i in 0...(meetings.count - 1) {
+                NSLog("got to here \n")
+                NSLog(String(describing: studentsList))
+                API.getStudentWithKey(meetings[i] as! String, completed: { [weak self] student in self?.student = student! })
+                NSLog(String(describing: student))
+            }
+        }
+    }
+    
   
   // MARK: - Views
   
@@ -187,6 +213,8 @@ class MainViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+     API.getMeetingsForTeacher("T001", completed: { [weak self] meetings in self?.meetings = meetings! })
     
     view.backgroundColor = UIColor.lightGray
     navigationController?.setNavigationBarHidden(true, animated: true)
@@ -381,7 +409,7 @@ extension MainViewController : UITableViewDelegate, UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 20
+    return meetings.count
   }
   
   func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -393,7 +421,35 @@ extension MainViewController : UITableViewDelegate, UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let meetingCell: MeetingTableViewCell = MeetingTableViewCell(style: .default, reuseIdentifier: "meetingCell", name: "Susie")
+    let meetingCell: MeetingTableViewCell = MeetingTableViewCell(style: .default, reuseIdentifier: "meetingCell")
+    meetingCell.nameText = (studentsList[indexPath.row] as! Student).name
+    let gsReference = API.storage.reference(forURL: String(describing: (studentsList[indexPath.row] as! Student).photoURL!))
+    gsReference.data(withMaxSize: 1 * 1024 * 1024, completion:  { data, error in
+        NSLog(String(describing: (self.studentsList[indexPath.row] as! Student).photoURL!))
+        if let error = error {
+            // Uh-oh, an error occurred!
+            NSLog("an error occured when downloading the image")
+            meetingCell.profileImageView.image = UIImage(named: "student-oval-susie.png")
+        } else {
+            // Data for "images/island.jpg" is returned
+            let profileImage = UIImage(data: data!)
+            meetingCell.profileImageView.image = profileImage
+        }
+    })
+    if (indexPath.row == 0) {
+        meetingCell.dateText = "Today"
+    }
+    else if (indexPath.row == 1) {
+        meetingCell.dateText = "Tomorrow"
+    }
+    else {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        let currDate = Date()
+        let newDate = currDate.addingTimeInterval(TimeInterval(86400*indexPath.row))
+        dateFormatter.locale = Locale(identifier: "en_US")
+        meetingCell.dateText = dateFormatter.string(from: newDate)
+    }
 //    cell.selectionStyle = .none
     if indexPath.section == 0 {
       switch indexPath.row {
