@@ -1,3 +1,4 @@
+
 //
 //  API.swift
 //  Aluna
@@ -14,20 +15,20 @@ class API {
     /* Database Structure:
      {
      “students”: {
-        “studentID”: {
-            “Name”: ""
-            “dateOfBirth”:
-            “parent1_contactInfo”:
-            “parent2_contactInfo”:
-            “Interests”: [“interest1”, “interest2”, ...]
-            “academicGoals”:[]
-            “socialGoals”:
-            “profileURL”: "imageID"
-        },
+     “studentID”: {
+     “Name”: ""
+     “dateOfBirth”:
+     “parent1_contactInfo”:
+     “parent2_contactInfo”:
+     “Interests”: [“interest1”, “interest2”, ...]
+     “academicGoals”:[]
+     “socialGoals”:[]
+     “profileURL”: "imageID"
+     },
      }
      
      “recaps”: {
-        “studentID”: [“2017.04.24” : {
+     “studentID”: [“2017.04.24”: {
      “recap notes”: “”
      “topics” : []
      “location” : “”
@@ -37,33 +38,32 @@ class API {
      }
      
      “teachers”:  {
-        “teacherID”: {
+     “teacherID”: {
      “username”: “teacher@email.com”
      “name”:
-        “students”: [“studentID_1”, “studentID_2”, ...]
+     “students”: [“studentID_1”, “studentID_2”, ...]
      }
      }
      
      “meetings”: {
-        “teacherID”: [studentID, ...],
-     
+     “teacherID”: [studentID, ...],
      }
      
      “dailyDose” : {
-        “message” : “”
+     “message” : “”
      }
- */
+     */
     
     /* Cloud Storage Structure:
      {
-        "studentImages": {
-            "studentID": file
-        },
-        "recapAudio": {
-            "audioID": file
-        }
+     "studentImages": {
+     "studentID": file
+     },
+     "recapAudio": {
+     "audioID": file
      }
-*/
+     }
+     */
     
     static let databaseReference: FIRDatabaseReference = FIRDatabase.database().reference()
     static let studentsReference = databaseReference.child("students")
@@ -75,14 +75,8 @@ class API {
     static let storage = FIRStorage.storage()
     static let storageReference = storage.reference()
     static let studentImagesReference = storageReference.child("studentImages")
+    static let teacherImageReference = storageReference.child("teacherImage")
     static let recapAudioReference = storageReference.child("recapAudio")
-    
-    /*class func getStudentsForTeacher(_ key: String, completed: ((NSArray?) -> Void)?) {
-        studentsReference.observeSingleEvent(of: .value, with: { snapshot in
-            let students = snapshot.value as! NSArray
-            completed?(students);
-        })
-    }*/
     
     class func getStudentWithKey(_ key: String, completed: ((Student?) -> Void)?) {
         studentsReference.child(key).observeSingleEvent(of: .value, with: { snapshot in
@@ -126,6 +120,18 @@ class API {
         })
     }
     
+  /*  class func getMeetingsForTeacher(_ teacherID: String, completed: ((NSArray?) -> Void)?) {
+        meetingsReference.child(teacherID).observeSingleEvent(of: .value, with: { snapshot in
+            var meetings: NSArray?
+            
+            if let dictionary = snapshot.value as? NSArray {
+                //                meetings
+            }
+            
+            completed?(meetings)
+        })
+    } */
+    
     class func createTeacherWithKey(_ key: String, teacherInfo: Dictionary<String, AnyObject>) -> Teacher {
         let teacherReference = teachersReference.child(key)
         teacherReference.setValue(teacherInfo)
@@ -142,23 +148,17 @@ class API {
     
     class func getMeetingsForTeacher(_ teacherID: String, completed: ((NSArray?) -> Void)?) {
         API.meetingsReference.child(teacherID).observeSingleEvent(of: .value, with: { snapshot in
-            let meetingsIDs = snapshot.value as! NSArray
-            /*var meetings = [NSArray]()
-            for id in meetingsIDs {
-                self.getStudentWithKey(id as! String, completed: { student in self?.meetingsIDs
-                    meetings.append(student)
-                })
-            }*/
-            completed?(meetingsIDs);
+            let meetings = snapshot.value as! NSArray
+            completed?(meetings);
         })
     }
+    
     
     class func getDailyDose(completed: ((String) -> Void)?) {
         API.dailyDoseReference.child("message").observeSingleEvent(of: .value, with: { snapshot in
             let message = snapshot.value as! String
             completed?(message);
         })
-        
     }
-
+    
 }
