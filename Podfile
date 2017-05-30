@@ -9,4 +9,5 @@ target 'Aluna' do
     pod 'Firebase/Core'
     pod 'Firebase/Database'
     pod 'Firebase/Storage'
+    pod 'ActionSheetPicker-3.0'
 end

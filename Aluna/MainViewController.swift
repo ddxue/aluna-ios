@@ -393,7 +393,7 @@ extension MainViewController : UITableViewDelegate, UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let meetingCell: MeetingTableViewCell = MeetingTableViewCell(style: .default, reuseIdentifier: "meetingCell", name: "Susie")
+    let meetingCell: MeetingTableViewCell = MeetingTableViewCell()
 //    cell.selectionStyle = .none
     if indexPath.section == 0 {
       switch indexPath.row {

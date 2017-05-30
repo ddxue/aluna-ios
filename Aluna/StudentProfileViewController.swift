@@ -62,7 +62,7 @@ class StudentProfileViewController: UIViewController {
     let addNewButton = ScalableButton(type: .custom)
     let addNewImage = UIImage(named:"plus-thin.png")
     addNewButton.setImage(addNewImage, for: UIControlState())
-    addNewButton.addTarget(self, action: #selector(dismissView), for: .touchUpInside)
+    addNewButton.addTarget(self, action: #selector(addNote), for: .touchUpInside)
         
     addNewButton.translatesAutoresizingMaskIntoConstraints = false
     return addNewButton
@@ -170,15 +170,6 @@ class StudentProfileViewController: UIViewController {
       
       meetingsTable.translatesAutoresizingMaskIntoConstraints = false
       return meetingsTable
-      }()
-  
-    private lazy var addNoteButton: UIButton = { [unowned self] in
-      let addNoteButton = ScalableButton(type: .custom)
-      addNoteButton.setImage(UIImage(named:"plus-thin.png"), for: UIControlState())
-      addNoteButton.addTarget(self, action: #selector(addNote), for: .touchUpInside)
-      
-      addNoteButton.translatesAutoresizingMaskIntoConstraints = false
-      return addNoteButton
       }()
   
     // MARK: - View Lifecycle
@@ -311,7 +302,8 @@ class StudentProfileViewController: UIViewController {
     }
   
     func addNote() {
-      
+      let createRecapVC = CreateRecapViewController()
+      self.present(createRecapVC, animated: true, completion: nil)
     }
 }
 

@@ -7,17 +7,13 @@
 //
 
 import UIKit
+import ActionSheetPicker_3_0
 
 private extension CGFloat {
-  static let backButtonHeightConstraint:CGFloat = 28.0
-  static let backButtonWidthConstraint:CGFloat = 18.0
+  static let backButtonHeightConstraint:CGFloat = 24.0
+  static let backButtonWidthConstraint:CGFloat = 24.0
   static let backButtonLeftConstraint:CGFloat = 15.0
   static let backButtonTopConstraint:CGFloat = 35.0
-  
-  static let closeButtonHeightConstraint:CGFloat = 28.0
-  static let closeButtonWidthConstraint:CGFloat = 18.0
-  static let closeButtonLeftConstraint:CGFloat = 15.0
-  static let closeButtonTopConstraint:CGFloat = 35.0
   
   static let titleLabelLeftConstraint:CGFloat = 25.0
   static let titleLabelBottomConstraint:CGFloat = 15.0
@@ -48,7 +44,7 @@ class CreateRecapViewController: UIViewController {
   
   private lazy var addNewButton: UIButton = { [unowned self] in
     let addNewButton = ScalableButton(type: .custom)
-    let addNewImage = UIImage(named:"plus-thin.png")
+    let addNewImage = UIImage(named:"createRecap.png")
     addNewButton.setImage(addNewImage, for: UIControlState())
     addNewButton.addTarget(self, action: #selector(dismissView), for: .touchUpInside)
     
@@ -77,20 +73,98 @@ class CreateRecapViewController: UIViewController {
     return titleLabel
     }()
   
-  private lazy var recapTable: UITableView = { [unowned self ] in
-    let recapTable = UITableView(frame: CGRect.null, style: .grouped)
-    recapTable.backgroundColor = UIColor.clear
-    recapTable.sectionIndexColor = UIColor.gray
-    recapTable.sectionIndexBackgroundColor = UIColor.groupTableViewBackground
-    recapTable.register(UITableViewCell.self, forCellReuseIdentifier: "meetingNoteCell")
-    recapTable.isScrollEnabled = true
-    recapTable.bounces = false
-    recapTable.delegate = self
-    recapTable.dataSource = self
+  private lazy var backgroundView: UIView = { [unowned self] in
+    let backgroundView = UIView()
+    backgroundView.backgroundColor = UIColor.white
     
-    recapTable.translatesAutoresizingMaskIntoConstraints = false
-    return recapTable
+    backgroundView.translatesAutoresizingMaskIntoConstraints = false
+    return backgroundView
     }()
+  
+  private lazy var dateLabel: UILabel = { [unowned self] in
+    let dateLabel = UILabel()
+    dateLabel.text = "Date"
+    dateLabel.textColor = UIColor.alunaGray()
+    dateLabel.textAlignment = .left
+    dateLabel.numberOfLines = 1
+    dateLabel.font = UIFont.alunaFontWithSize(18.0)
+    
+    dateLabel.translatesAutoresizingMaskIntoConstraints = false
+    return dateLabel
+    }()
+  
+  private lazy var timeLabel: UILabel = { [unowned self] in
+    let timeLabel = UILabel()
+    timeLabel.text = "Time"
+    timeLabel.textColor = UIColor.alunaGray()
+    timeLabel.textAlignment = .left
+    timeLabel.numberOfLines = 1
+    timeLabel.font = UIFont.alunaFontWithSize(18.0)
+    
+    timeLabel.translatesAutoresizingMaskIntoConstraints = false
+    return timeLabel
+    }()
+  
+  private lazy var locationLabel: UILabel = { [unowned self] in
+    let locationLabel = UILabel()
+    locationLabel.text = "Time"
+    locationLabel.textColor = UIColor.alunaGray()
+    locationLabel.textAlignment = .left
+    locationLabel.numberOfLines = 1
+    locationLabel.font = UIFont.alunaFontWithSize(18.0)
+    
+    locationLabel.translatesAutoresizingMaskIntoConstraints = false
+    return locationLabel
+    }()
+  
+  private lazy var durationLabel: UILabel = { [unowned self] in
+    let durationLabel = UILabel()
+    durationLabel.text = "Duration"
+    durationLabel.textColor = UIColor.alunaGray()
+    durationLabel.textAlignment = .left
+    durationLabel.numberOfLines = 1
+    durationLabel.font = UIFont.alunaFontWithSize(18.0)
+    
+    durationLabel.translatesAutoresizingMaskIntoConstraints = false
+    return durationLabel
+    }()
+  
+  private lazy var topicsLabel: UILabel = { [unowned self] in
+    let durationLabel = UILabel()
+    durationLabel.text = "Topics"
+    durationLabel.textColor = UIColor.alunaGray()
+    durationLabel.textAlignment = .left
+    durationLabel.numberOfLines = 1
+    durationLabel.font = UIFont.alunaFontWithSize(18.0)
+    
+    durationLabel.translatesAutoresizingMaskIntoConstraints = false
+    return durationLabel
+    }()
+  
+  private lazy var nextMeetingLabel: UILabel = { [unowned self] in
+    let nextMeetingLabel = UILabel()
+    nextMeetingLabel.text = "Next Meeting"
+    nextMeetingLabel.textColor = UIColor.alunaGray()
+    nextMeetingLabel.textAlignment = .left
+    nextMeetingLabel.numberOfLines = 1
+    nextMeetingLabel.font = UIFont.alunaFontWithSize(18.0)
+    
+    nextMeetingLabel.translatesAutoresizingMaskIntoConstraints = false
+    return nextMeetingLabel
+    }()
+  
+  private lazy var thoughtsLabel: UILabel = { [unowned self] in
+    let thoughtsLabel = UILabel()
+    thoughtsLabel.text = "Tell us your thoughts:"
+    thoughtsLabel.textColor = UIColor.alunaGray()
+    thoughtsLabel.textAlignment = .left
+    thoughtsLabel.numberOfLines = 1
+    thoughtsLabel.font = UIFont.alunaFontWithSize(30.0)
+    
+    thoughtsLabel.translatesAutoresizingMaskIntoConstraints = false
+    return thoughtsLabel
+    }()
+  
   
   private lazy var addRecordingButton: UIButton = { [unowned self] in
     let addRecordingButton = ScalableButton(type: .custom)
@@ -99,15 +173,6 @@ class CreateRecapViewController: UIViewController {
     
     addRecordingButton.translatesAutoresizingMaskIntoConstraints = false
     return addRecordingButton
-    }()
-  
-  private lazy var doneButton: UIButton = { [unowned self] in
-    let doneButton = ScalableButton(type: .custom)
-    doneButton.setImage(UIImage(named:"plus-thin.png"), for: UIControlState())
-    doneButton.addTarget(self, action: #selector(addRecap), for: .touchUpInside)
-    
-    doneButton.translatesAutoresizingMaskIntoConstraints = false
-    return doneButton
     }()
   
   // MARK: - View Lifecycle
@@ -147,7 +212,13 @@ class CreateRecapViewController: UIViewController {
     view.addSubview(bannerImageView)
     view.addSubview(backButton)
     view.addSubview(titleLabel)
-    view.addSubview(recapTable)
+    view.addSubview(backgroundView)
+    backgroundView.addSubview(dateLabel)
+    backgroundView.addSubview(timeLabel)
+    backgroundView.addSubview(locationLabel)
+    backgroundView.addSubview(durationLabel)
+    backgroundView.addSubview(nextMeetingLabel)
+    backgroundView.addSubview(thoughtsLabel)
     view.addSubview(addNewButton)
   }
   
@@ -185,33 +256,44 @@ class CreateRecapViewController: UIViewController {
     //right
     view.addConstraint(NSLayoutConstraint(item:titleLabel, attribute:.right, relatedBy:.equal, toItem: view, attribute:.right, multiplier: 1, constant: 0))
     
-    //recapTable
+    //backgroundView
     
-//    //top
-//    view.addConstraint(NSLayoutConstraint(item:recapTable, attribute:.top, relatedBy:.equal, toItem: studentSegmentedControl, attribute:.bottom, multiplier: 1, constant: 0))
-//    //bottom
-//    view.addConstraint(NSLayoutConstraint(item:recapTable, attribute:.bottom, relatedBy:.equal, toItem: view, attribute:.bottom, multiplier: 1, constant: 0))
-//    //left
-//    view.addConstraint(NSLayoutConstraint(item:recapTable, attribute:.left, relatedBy:.equal, toItem: view, attribute:.left, multiplier: 1, constant: 0))
-//    //right
-//    view.addConstraint(NSLayoutConstraint(item:recapTable, attribute:.right, relatedBy:.equal, toItem: view, attribute:.right, multiplier: 1, constant: 0))
+    //top
+    view.addConstraint(NSLayoutConstraint(item:backgroundView, attribute:.top, relatedBy:.equal, toItem: bannerImageView, attribute:.bottom, multiplier: 1, constant: 0))
+    //bottom
+    view.addConstraint(NSLayoutConstraint(item:backgroundView, attribute:.bottom, relatedBy:.equal, toItem: addNewButton, attribute:.top, multiplier: 1, constant: 0))
+    //left
+    view.addConstraint(NSLayoutConstraint(item:backgroundView, attribute:.left, relatedBy:.equal, toItem: view, attribute:.left, multiplier: 1, constant: 0))
+    //right
+    view.addConstraint(NSLayoutConstraint(item:backgroundView, attribute:.right, relatedBy:.equal, toItem: view, attribute:.right, multiplier: 1, constant: 0))
+    
+    //dateLabel
+    
+    //top
+    backgroundView.addConstraint(NSLayoutConstraint(item:dateLabel, attribute:.top, relatedBy:.equal, toItem: backgroundView, attribute:.top, multiplier: 1, constant: 0))
+    //left
+    backgroundView.addConstraint(NSLayoutConstraint(item:dateLabel, attribute:.left, relatedBy:.equal, toItem: backgroundView, attribute:.left, multiplier: 1, constant: 0))
+    //height
+    backgroundView.addConstraint(NSLayoutConstraint(item:dateLabel, attribute:.height, relatedBy:.equal, toItem: nil, attribute:.notAnAttribute, multiplier: 1, constant: 0))
+    //width
+    backgroundView.addConstraint(NSLayoutConstraint(item:dateLabel, attribute:.width, relatedBy:.equal, toItem: backgroundView, attribute:.width, multiplier: 1, constant: 0))
     
     //addNewButton
     
     //height
     view.addConstraint(NSLayoutConstraint(item:addNewButton, attribute:.height, relatedBy:.equal, toItem: nil, attribute:.notAnAttribute, multiplier: 1, constant: .addNewButtonImageHeightConstraint))
-    //width
-    view.addConstraint(NSLayoutConstraint(item:addNewButton, attribute:.width, relatedBy:.equal, toItem: nil, attribute:.notAnAttribute, multiplier: 1, constant: .addNewButtonImageWidthConstraint))
-    //centered
-    view.addConstraint(NSLayoutConstraint(item:addNewButton, attribute:.centerX, relatedBy:.equal, toItem: view, attribute:.centerX, multiplier: 1, constant: 0))
     //bottom
     view.addConstraint(NSLayoutConstraint(item:addNewButton, attribute:.bottom, relatedBy:.equal, toItem: view, attribute:.bottom, multiplier: 1, constant: 0))
+    //left
+    view.addConstraint(NSLayoutConstraint(item:addNewButton, attribute:.left, relatedBy:.equal, toItem: view, attribute:.left, multiplier: 1, constant: 0))
+    //right
+    view.addConstraint(NSLayoutConstraint(item:addNewButton, attribute:.right, relatedBy:.equal, toItem: view, attribute:.right, multiplier: 1, constant: 0))
   }
   
   // MARK: - Actions
   
   func dismissView() {
-    self.navigationController?.popViewController(animated: true)
+    self.dismiss(animated: true, completion: nil)
   }
   
   func addRecording() {
