@@ -36,6 +36,43 @@ private extension CGFloat {
 }
 
 class StudentProfileViewController: UIViewController {
+    
+    var student:Student = Student(key: "9999", dictionary: [
+        "key" : "9999" as AnyObject,
+        "name" : "Alex" as AnyObject,
+        "photoURL": "gs://aluna-b378a.appspot.com/0.jpg" as AnyObject,
+        "parent1_contact": String(describing: [
+            "name" : "Bobby",
+            "phoneNumber" : "555-555-5555"
+            ]) as AnyObject,
+        "parent2_contact": String(describing: [
+            "name" : "Bobby",
+            "phoneNumber" : "555-555-5555"
+            ]) as AnyObject,
+        "interests": String(describing: ["playing video games", "exercizing"]) as AnyObject,
+        "academicGoals": String(describing: ["improve at everything"]) as AnyObject,
+        "socialGoals": String(describing: ["Play outside at recess", "meet friends"]) as AnyObject
+        ])  {
+        didSet {
+            titleLabel.text = student.name
+            NSLog("student name set")
+            let gsReference = API.storage.reference(forURL: String(describing: student.photoURL!))
+            gsReference.data(withMaxSize: 1 * 1024 * 1024, completion:  { data, error in
+                if let error = error {
+                    // Uh-oh, an error occurred!
+                    NSLog("an error occured when downloading the image")
+                    self.bannerImageView.image = UIImage(named: "student-header")
+                } else {
+                    // Data for "images/island.jpg" is returned
+                    let profileImage = UIImage(data: data!)
+                    self.bannerImageView.image = profileImage!
+                }
+            })
+            NSLog("got here")
+            
+        }
+    }
+    
   
   // MARK: - Views
     
@@ -70,7 +107,7 @@ class StudentProfileViewController: UIViewController {
   
   private lazy var bannerImageView: UIImageView = { [unowned self] in
     let bannerImageView = UIImageView()
-    bannerImageView.image = UIImage(named: "student-header.png")
+    //bannerImageView.image = UIImage(named: "student-header.png")
     bannerImageView.contentMode = .scaleAspectFill
     
     bannerImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -79,7 +116,7 @@ class StudentProfileViewController: UIViewController {
   
   private lazy var titleLabel: UILabel = { [unowned self] in
     let titleLabel = UILabel()
-    titleLabel.text = "Susie Johnston"
+    //titleLabel.text = "Susie Johnston"
     titleLabel.textColor = UIColor.white
     titleLabel.textAlignment = .left
     titleLabel.numberOfLines = 1

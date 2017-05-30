@@ -47,9 +47,9 @@ class MeetingTableViewCell: UITableViewCell {
 
   // MARK: - Subviews
   
-  private  lazy var profileImageView: UIImageView = { [unowned self] in
+  public lazy var profileImageView: UIImageView = { [unowned self] in
     let profileImageView = UIImageView()
-    profileImageView.image = UIImage(named: "student-oval-susie.png")
+    //profileImageView.image = UIImage(named: "student-oval-susie.png")
     profileImageView.contentMode = .scaleAspectFill
     
     profileImageView.translatesAutoresizingMaskIntoConstraints = false
