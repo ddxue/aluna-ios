@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		060C5BA91EC0359200D716AB /* CreateStudents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060C5BA81EC0359200D716AB /* CreateStudents.swift */; };
 		063410431EAD7B7B00E41951 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 063410421EAD7B7B00E41951 /* GoogleService-Info.plist */; };
 		0691C2A61EA40E2500213C61 /* StudentViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691C2A51EA40E2500213C61 /* StudentViewCell.swift */; };
 		0691C2A91EA412D800213C61 /* PastMeetingsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0691C2A71EA412D800213C61 /* PastMeetingsViewCell.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		060C5BA81EC0359200D716AB /* CreateStudents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateStudents.swift; sourceTree = "<group>"; };
 		061759691EB2E706002F168C /* MeetingNoteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingNoteTableViewCell.swift; sourceTree = "<group>"; };
 		063410421EAD7B7B00E41951 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0691C2A51EA40E2500213C61 /* StudentViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentViewCell.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				68A6C40E1EBC139C0092E3A3 /* API.swift */,
+				060C5BA81EC0359200D716AB /* CreateStudents.swift */,
 				6854E5DA1EB2ECB200EA8889 /* Student.swift */,
 				06B5D2201EBC19E300F2C1CF /* Recap.swift */,
 				68A6C4141EBC19920092E3A3 /* Teacher.swift */,
@@ -348,7 +351,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		9B14410D1C4C8198F7D4D4F4 /* [CP] Embed Pods Frameworks */ = {
@@ -394,6 +397,7 @@
 				681B5A8B1E9C90500074C27A /* UIFont+Helper.swift in Sources */,
 				681085F91EA200F400FB32F0 /* StudentProfileViewController.swift in Sources */,
 				68AE61A91E9CA1AE0027CFBC /* MainViewController.swift in Sources */,
+				060C5BA91EC0359200D716AB /* CreateStudents.swift in Sources */,
 				68A6C40F1EBC139C0092E3A3 /* API.swift in Sources */,
 				6854E5DD1EB2ECB200EA8889 /* Student.swift in Sources */,
 			);
