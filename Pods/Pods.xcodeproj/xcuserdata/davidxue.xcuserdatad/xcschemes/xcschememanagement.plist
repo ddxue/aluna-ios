@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>ActionSheetPicker-3.0.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>GTMSessionFetcher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,17 +47,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>46F42034FA358E94C9AEEBFEE250D3C1</key>
+		<key>2625A55F447CA40CC6B6B273FB159A4B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>477FCC0D53DDEABBB8E444CD6151C804</key>
+		<key>440904468E94F9085E9E2B3547DEE696</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>644E49D4EFE12EB6D9812B09E326962D</key>
+		<key>7B585791629B5885D9145131C546D7AB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>965699190112DDBD9B7864D091660DBC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
