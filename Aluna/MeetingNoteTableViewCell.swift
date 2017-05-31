@@ -11,29 +11,29 @@ import UIKit
 
 private extension CGFloat {
   
+  static let dateLabelLeftConstraint:CGFloat   = 20.0
   static let dateLabelTopConstraint:CGFloat    = 15.0
-  static let dateLabelLeftConstraint:CGFloat   = 15.0
   static let dateLabelWidthConstraint:CGFloat  = 200.0
   static let dateLabelHeightConstraint:CGFloat = 20.0
   
-  static let topicLabelLeftConstraint:CGFloat       = 15.0
+  static let topicLabelLeftConstraint:CGFloat       = 20.0
   static let topicLabelTopConstraint:CGFloat        = 4.0
   static let topicLabelWidthConstraint:CGFloat      = 200.0
   static let topicLabelHeightConstraint:CGFloat     = 20.0
   
-  static let locationLabelLeftConstraint:CGFloat     = 15.0
+  static let locationLabelLeftConstraint:CGFloat     = 20.0
   static let locationLabelTopConstraint:CGFloat      = 0.0
   static let locationLabelWidthConstraint:CGFloat    = 200.0
   static let locationLabelHeightConstraint:CGFloat   = 20.0
   
-  static let nextMeetingLabelLeftConstraint:CGFloat   = 15.0
+  static let nextMeetingLabelLeftConstraint:CGFloat   = 20.0
   static let nextMeetingLabelTopConstraint:CGFloat    = 0.0
   static let nextMeetingLabelWidthConstraint:CGFloat  = 200.0
   static let nextMeetingLabelHeightConstraint:CGFloat = 20.0
   
   static let imageViewRightConstraint : CGFloat      = 40.0
-  static let imageViewWidthConstraint: CGFloat       = 50.0
-  static let imageViewHeightConstraint: CGFloat      = 50.0
+  static let imageViewWidthConstraint: CGFloat       = 10.0
+  static let imageViewHeightConstraint: CGFloat      = 20.0
   
   static let selectionCarrotRightConstraint:CGFloat = 25.0
   static let selectionCarrotHeightConstraint:CGFloat = 18.0
@@ -114,7 +114,7 @@ class MeetingNoteTableViewCell: UITableViewCell {
   
   private  lazy var playImageView: UIImageView = { [unowned self] in
     let playImageView = UIImageView()
-    playImageView.image = UIImage(named: "play-audio.png")
+    playImageView.image = UIImage(named: "carrot-right.png")
     playImageView.contentMode = .scaleAspectFill
     
     playImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -229,6 +229,4 @@ class MeetingNoteTableViewCell: UITableViewCell {
     
     super.updateConstraints()
   }
-
-  
 }

@@ -36,43 +36,55 @@ private extension CGFloat {
 }
 
 class StudentProfileViewController: UIViewController {
-    
-    var student:Student = Student(key: "9999", dictionary: [
-        "key" : "9999" as AnyObject,
-        "name" : "Alex" as AnyObject,
-        "photoURL": "gs://aluna-b378a.appspot.com/0.jpg" as AnyObject,
-        "parent1_contact": String(describing: [
-            "name" : "Bobby",
-            "phoneNumber" : "555-555-5555"
-            ]) as AnyObject,
-        "parent2_contact": String(describing: [
-            "name" : "Bobby",
-            "phoneNumber" : "555-555-5555"
-            ]) as AnyObject,
-        "interests": String(describing: ["playing video games", "exercizing"]) as AnyObject,
-        "academicGoals": String(describing: ["improve at everything"]) as AnyObject,
-        "socialGoals": String(describing: ["Play outside at recess", "meet friends"]) as AnyObject
-        ])  {
-        didSet {
-            titleLabel.text = student.name
-            NSLog("student name set")
-            let gsReference = API.storage.reference(forURL: String(describing: student.photoURL!))
-            gsReference.data(withMaxSize: 1 * 1024 * 1024, completion:  { data, error in
-                if let error = error {
-                    // Uh-oh, an error occurred!
-                    NSLog("an error occured when downloading the image")
-                    self.bannerImageView.image = UIImage(named: "student-header")
-                } else {
-                    // Data for "images/island.jpg" is returned
-                    let profileImage = UIImage(data: data!)
-                    self.bannerImageView.image = profileImage!
-                }
-            })
-            NSLog("got here")
-            
-        }
+  
+  // MARK: - Data
+
+  var student:Student = Student(key: "9999", dictionary: [
+      "key" : "9999" as AnyObject,
+      "name" : "Alex" as AnyObject,
+      "photoURL": "gs://aluna-b378a.appspot.com/0.jpg" as AnyObject,
+      "parent1_contact": String(describing: [
+          "name" : "Bobby",
+          "phoneNumber" : "555-555-5555"
+          ]) as AnyObject,
+      "parent2_contact": String(describing: [
+          "name" : "Bobby",
+          "phoneNumber" : "555-555-5555"
+          ]) as AnyObject,
+      "interests": String(describing: ["playing video games", "exercizing"]) as AnyObject,
+      "academicGoals": String(describing: ["improve at everything"]) as AnyObject,
+      "socialGoals": String(describing: ["Play outside at recess", "meet friends"]) as AnyObject
+      ])  {
+      didSet {
+          titleLabel.text = student.name
+          NSLog("student name set")
+          let gsReference = API.storage.reference(forURL: String(describing: student.photoURL!))
+          gsReference.data(withMaxSize: 1 * 1024 * 1024, completion:  { data, error in
+              if let error = error {
+                  // Uh-oh, an error occurred!
+                  NSLog("an error occured when downloading the image")
+                  self.bannerImageView.image = UIImage(named: "student-header")
+              } else {
+                  // Data for "images/island.jpg" is returned
+                  let profileImage = UIImage(data: data!)
+                  self.bannerImageView.image = profileImage!
+              }
+          })
+          NSLog("got here")
+          
+      }
+  }
+  
+  var isProfileShowing: Bool = false {
+    didSet {
+      if isProfileShowing {
+        self.addNewButton.isHidden = true
+      } else {
+        self.addNewButton.isHidden = false
+      }
+      self.studentTable.reloadData()
     }
-    
+  }
   
   // MARK: - Views
     
@@ -184,7 +196,11 @@ class StudentProfileViewController: UIViewController {
     // Handle the callback function
     studentSegmentedControl.valueDidChange = { segmentio, segmentIndex in
       print("Selected item: ", segmentIndex)
-      self.studentTable.reloadData()
+      if segmentIndex == 0 {
+        self.isProfileShowing = false
+      } else {
+        self.isProfileShowing = true
+      }
     }
   
     // Initialize the segmented control to 0 index
@@ -263,7 +279,6 @@ class StudentProfileViewController: UIViewController {
       view.addConstraint(NSLayoutConstraint(item:backButton, attribute:.width, relatedBy:.equal, toItem: nil, attribute:.notAnAttribute, multiplier: 1, constant: .backButtonWidthConstraint))
       //height
       view.addConstraint(NSLayoutConstraint(item:backButton, attribute:.height, relatedBy:.equal, toItem: nil, attribute:.notAnAttribute, multiplier: 1, constant: .backButtonHeightConstraint))
-      
       
       //searchButton
       
@@ -350,7 +365,11 @@ extension StudentProfileViewController : UITableViewDelegate, UITableViewDataSou
       if indexPath.section == 0 {
         switch indexPath.row {
         case 0:
-          return 120.0
+          if isProfileShowing {
+            return 400.0
+          } else {
+            return 120.0
+          }
         default:
           break
         }
@@ -363,7 +382,11 @@ extension StudentProfileViewController : UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      return 20
+      if isProfileShowing {
+        return 1
+      } else {
+        return 20
+      }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -375,17 +398,22 @@ extension StudentProfileViewController : UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      let cell: MeetingNoteTableViewCell = MeetingNoteTableViewCell(style: .default, reuseIdentifier: "headerCell")
-        
+      let cell = MeetingNoteTableViewCell(style: .default, reuseIdentifier: "headerCell")
       cell.selectionStyle = .none
+      
       if indexPath.section == 0 {
         switch indexPath.row {
         case 0:
-          return cell
+          if isProfileShowing {
+            return ProfileInfoTableViewCell(style: .default, reuseIdentifier: "profileCell")
+          } else {
+            return cell
+          }
         default:
           break
         }
       }
+      
       return cell
     }
     
