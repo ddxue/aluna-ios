@@ -450,13 +450,6 @@ extension MainViewController : UITableViewDelegate, UITableViewDataSource {
         dateFormatter.locale = Locale(identifier: "en_US")
         meetingCell.dateText = dateFormatter.string(from: newDate)
     }
-//    cell.selectionStyle = .none
-    if indexPath.section == 0 {
-      switch indexPath.row {
-      default:
-        break
-      }
-    }
     return meetingCell
   }
   

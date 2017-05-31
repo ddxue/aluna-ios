@@ -1,4 +1,5 @@
 PODS:
+  - ActionSheetPicker-3.0 (2.2.0)
   - Firebase/Core (3.16.0):
     - FirebaseAnalytics (= 3.8.0)
     - FirebaseCore (= 3.6.0)
@@ -29,6 +30,7 @@ PODS:
   - Segmentio (2.1.2)
 
 DEPENDENCIES:
+  - ActionSheetPicker-3.0
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
@@ -36,6 +38,7 @@ DEPENDENCIES:
   - Segmentio (~> 2.1)
 
 SPEC CHECKSUMS:
+  ActionSheetPicker-3.0: d11a4c12c6aaf704b8a3f56d179198c99f3e41e6
   Firebase: 21bf4a89d3f01bfbe11adc3a5d934a4a3d3a5fd6
   FirebaseAnalytics: 920e46455f27b0a52a80907a6d9b73ee4bd1c635
   FirebaseCore: 9691ee2ade70c098d7cf92440f4303f16d83ca75
@@ -47,6 +50,6 @@ SPEC CHECKSUMS:
   MSSlidingPanelController: a0515f4e0724fbe4de0970b2fac23ef16366f75c
   Segmentio: f85114993e305bd9c522952eef8c2c4db732fd17
 
-PODFILE CHECKSUM: fcd920bdbbcfc7a782632d7551e8df265b74ed25
+PODFILE CHECKSUM: 42ab23de3f9d6173c64802a1269313bcad9b5b19
 
 COCOAPODS: 1.1.1

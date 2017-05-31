@@ -40,6 +40,8 @@
 		68744B781E9C47B400E346AB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68744B771E9C47B400E346AB /* LoginViewController.swift */; };
 		68744B7D1E9C47B400E346AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68744B7C1E9C47B400E346AB /* Assets.xcassets */; };
 		68744B801E9C47B400E346AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68744B7E1E9C47B400E346AB /* LaunchScreen.storyboard */; };
+		6897AD491EDD33E400BC5490 /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6897AD481EDD33E400BC5490 /* BorderedButton.swift */; };
+		6897AD4D1EDF53E000BC5490 /* ProfileInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6897AD4C1EDF53DF00BC5490 /* ProfileInfoTableViewCell.swift */; };
 		68A6C40F1EBC139C0092E3A3 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A6C40E1EBC139C0092E3A3 /* API.swift */; };
 		68A6C4111EBC13E50092E3A3 /* DailyDoseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A6C4101EBC13E40092E3A3 /* DailyDoseViewController.swift */; };
 		68A6C4151EBC19920092E3A3 /* Teacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A6C4141EBC19920092E3A3 /* Teacher.swift */; };
@@ -83,6 +85,8 @@
 		68744B7C1E9C47B400E346AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68744B7F1E9C47B400E346AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68744B811E9C47B400E346AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6897AD481EDD33E400BC5490 /* BorderedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
+		6897AD4C1EDF53DF00BC5490 /* ProfileInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileInfoTableViewCell.swift; sourceTree = "<group>"; };
 		68A6C40E1EBC139C0092E3A3 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		68A6C4101EBC13E40092E3A3 /* DailyDoseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyDoseViewController.swift; sourceTree = "<group>"; };
 		68A6C4141EBC19920092E3A3 /* Teacher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Teacher.swift; sourceTree = "<group>"; };
@@ -222,6 +226,7 @@
 		68AE61AC1E9CA53C0027CFBC /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				6897AD4C1EDF53DF00BC5490 /* ProfileInfoTableViewCell.swift */,
 				68392A2C1EA3ECD900F4920F /* MeetingTableViewCell.swift */,
 				061759691EB2E706002F168C /* MeetingNoteTableViewCell.swift */,
 				0691C2A51EA40E2500213C61 /* StudentViewCell.swift */,
@@ -230,6 +235,7 @@
 				68392A2E1EA4002600F4920F /* MeetingNoteTableViewCell.swift */,
 				68392A2A1EA3053600F4920F /* MenuTableViewCell.swift */,
 				68AE61AA1E9CA4FD0027CFBC /* ScalableButton.swift */,
+				6897AD481EDD33E400BC5490 /* BorderedButton.swift */,
 			);
 			name = "Custom Views";
 			sourceTree = "<group>";
@@ -380,6 +386,8 @@
 				0691C2A61EA40E2500213C61 /* StudentViewCell.swift in Sources */,
 				68392A211EA2F11000F4920F /* MenuHelper.swift in Sources */,
 				68AE61AB1E9CA4FD0027CFBC /* ScalableButton.swift in Sources */,
+				6897AD4D1EDF53E000BC5490 /* ProfileInfoTableViewCell.swift in Sources */,
+				6897AD491EDD33E400BC5490 /* BorderedButton.swift in Sources */,
 				0691C2A91EA412D800213C61 /* PastMeetingsViewCell.swift in Sources */,
 				687402541EAB252A00232634 /* CreateRecapViewController.swift in Sources */,
 				68744B781E9C47B400E346AB /* LoginViewController.swift in Sources */,
