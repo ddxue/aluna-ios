@@ -20,11 +20,11 @@ class Student: CustomStringConvertible {
   
   var name: String!
   var dateOfBirth: String!
-  var parent1_contact: String?
-  var parent2_contact: String?
-  var interests: [String] = []
-  var academicGoals: [String] = []
-  var socialGoals: [String] = []
+  var parent1_contact: String!
+  var parent2_contact: String!
+  var interests: String!
+  var academicGoals: String!
+  var socialGoals: String!
   var photoURL: URL?
   
   //    var name: String!
@@ -45,24 +45,24 @@ class Student: CustomStringConvertible {
       self.dateOfBirth = dateOfBirth
     }
     
-    if let parent1_contact = dictionary["parent1_contact"] as? String {
+    if let parent1_contact = dictionary["parent1_contact"]! as? String {
       self.parent1_contact = parent1_contact
     }
-    
+
     if let parent2_contact = dictionary["parent2_contact"] as? String {
       self.parent2_contact = parent2_contact
     }
     
-    if let interestsDictionary = dictionary["interests"] as? Dictionary<String, AnyObject> {
-      self.interests = self.interests + Array(interestsDictionary.keys)
+    if let interestsDictionary = dictionary["interests"] as? String {
+      self.interests = interestsDictionary
     }
     
-    if let academicGoalsDictionary = dictionary["academic_goals"] as? Dictionary<String, AnyObject> {
-      self.academicGoals = self.academicGoals + Array(academicGoalsDictionary.keys)
+    if let academicGoalsDictionary = dictionary["academicGoals"] as? String {
+      self.academicGoals = academicGoalsDictionary
     }
     
-    if let socialGoalsDictionary = dictionary["social_goals"] as? Dictionary<String, AnyObject> {
-      self.socialGoals = self.socialGoals + Array(socialGoalsDictionary.keys)
+    if let socialGoalsDictionary = dictionary["socialGoals"] as? String {
+      self.socialGoals = socialGoalsDictionary
     }
     
     if let photoURL = dictionary["photoURL"] as? String {
@@ -89,8 +89,8 @@ class Student: CustomStringConvertible {
             "key": key,
             "name": name,
             "photoURL": String(describing: photoURL),
-            "parent1_contact": parent1_contact,
-            "parent2_contact": parent2_contact,
+            "parent1_contact": String(describing: parent1_contact),
+            "parent2_contact": String(describing: parent2_contact),
             "interests": String(describing: interests),
             "academicGoals": String(describing: academicGoals),
             "socialGoals": String(describing: socialGoals)

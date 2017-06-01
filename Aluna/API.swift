@@ -83,6 +83,8 @@ class API {
             var student: Student?
             
             if let dictionary = snapshot.value as? Dictionary<String, AnyObject> {
+                NSLog("printing the dictionary used to create a new student")
+                NSLog(String(describing: dictionary))
                 student = Student(key: key, dictionary: dictionary)
             }
             

@@ -28,6 +28,23 @@ private extension CGFloat {
 class ProfileInfoTableViewCell: UITableViewCell {
   
   // MARK: - Data
+    
+    var student:Student = Student(key: "9999", dictionary: [
+        "key" : "9999" as AnyObject,
+        "name" : "Alex" as AnyObject,
+        "photoURL": "gs://aluna-b378a.appspot.com/0.jpg" as AnyObject,
+        "parent1_contact": String(describing: [
+            "name" : "Bobby",
+            "phoneNumber" : "555-555-5555"
+            ]) as AnyObject,
+        "parent2_contact": String(describing: [
+            "name" : "Bobby",
+            "phoneNumber" : "555-555-5555"
+            ]) as AnyObject,
+        "interests": String(describing: ["playing video games", "exercizing"]) as AnyObject,
+        "academicGoals": String(describing: ["improve at everything"]) as AnyObject,
+        "socialGoals": String(describing: ["Play outside at recess", "meet friends"]) as AnyObject
+        ])
   
   var nameText:String = "Susie Rose Johnston" {
     didSet {
@@ -247,8 +264,18 @@ class ProfileInfoTableViewCell: UITableViewCell {
   
   // MARK: - Init
   
-  override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    init(style: UITableViewCellStyle, reuseIdentifier: String?, student: Student) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        self.student = student
+        nameText = student.name
+        learningGoalsText = student.academicGoals
+        
+        personalGoalsText = student.socialGoals
+        interestsText = student.interests
+        parent_1_text = student.parent1_contact!
+        parent_2_text = student.parent2_contact!
+        //FAVORITE SUBJECT IS NOT IN THE BACKEND.  DO WE WANT TO KEEP THIS IN THE PROFILE
     
     backgroundColor = UIColor.white
     selectionStyle = .gray

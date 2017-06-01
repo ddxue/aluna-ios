@@ -405,7 +405,7 @@ extension StudentProfileViewController : UITableViewDelegate, UITableViewDataSou
         switch indexPath.row {
         case 0:
           if isProfileShowing {
-            return ProfileInfoTableViewCell(style: .default, reuseIdentifier: "profileCell")
+            return ProfileInfoTableViewCell(style: .default, reuseIdentifier: "profileCell", student: student)
           } else {
             return cell
           }
