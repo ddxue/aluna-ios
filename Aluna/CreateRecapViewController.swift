@@ -94,18 +94,18 @@ class CreateRecapViewController: UIViewController {
     return addNewButton
     }()
   
-  private lazy var bannerImageView: UIImageView = { [unowned self] in
+  lazy var bannerImageView: UIImageView = { [unowned self] in
     let bannerImageView = UIImageView()
-    bannerImageView.image = UIImage(named: "student-header.png")
+    //bannerImageView.image = UIImage(named: "student-header.png")
     bannerImageView.contentMode = .scaleAspectFill
     
     bannerImageView.translatesAutoresizingMaskIntoConstraints = false
     return bannerImageView
     }()
   
-  private lazy var titleLabel: UILabel = { [unowned self] in
+  lazy var titleLabel: UILabel = { [unowned self] in
     let titleLabel = UILabel()
-    titleLabel.text = "Susie Johnston"
+    //titleLabel.text = "Susie Johnston"
     titleLabel.textColor = UIColor.white
     titleLabel.textAlignment = .left
     titleLabel.numberOfLines = 1

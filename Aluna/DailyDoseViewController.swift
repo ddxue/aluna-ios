@@ -32,8 +32,11 @@ class DailyDoseViewController : UIViewController {
   // MARK: - Data
   
   var tipTitle: String? = "Tip of the Day"
-  var tipDescription: String? = "The tip will go here"
-  //var tipDescription: String? = API.getDailyDose(completed: )
+    var tipDescription: String? = "Good teaching is one-fourth preparation and three-fourths theatre. \n-Gail Goldwin" {
+        didSet {
+            titleLabel.text = self.tipTitle
+        }
+    }
   
   // MARK: - Views
   
@@ -92,6 +95,7 @@ class DailyDoseViewController : UIViewController {
   // MARK: - View Lifecycle
   
   override func viewDidLoad() {
+    API.getDailyDose(completed: { [weak self] tipDescription in self?.tipDescription = tipDescription })
     super.viewDidLoad()
     
     setUpNavBar()

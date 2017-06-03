@@ -355,6 +355,8 @@ class StudentProfileViewController: UIViewController {
   
     func addNote() {
       let createRecapVC = CreateRecapViewController()
+        createRecapVC.titleLabel.text = student.name
+        createRecapVC.bannerImageView.image = bannerImageView.image
       self.present(createRecapVC, animated: true, completion: nil)
     }
 }
